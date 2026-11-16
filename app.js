@@ -42,7 +42,7 @@
     busy = true; boost(2);
     var ov = document.createElement('div');
     ov.setAttribute('aria-hidden', 'true');
-    ov.style.cssText = 'position:fixed;inset:0;z-index:1000;pointer-events:none;overflow:hidden;display:flex';
+    ov.style.cssText = 'position:fixed;inset:0 -2px 0 0;z-index:1000;pointer-events:none;overflow:hidden;display:flex';
     if (TRANSITION === 'cercle') {
       var x = e && e.clientX, y = e && e.clientY;
       if (!x && !y && e && e.currentTarget) { var r = e.currentTarget.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
@@ -56,7 +56,7 @@
       for (var i = 0; i < 14; i++) {
         var b = document.createElement('div');
         b.className = 'bar';
-        b.style.cssText = 'flex:1 1 0;height:100%;background:' + shades[i % 4] + ';animation-delay:' + Math.round(Math.abs(i - 6.5) * 32) + 'ms';
+        b.style.cssText = 'flex:1 1 0;min-width:0;height:100%;background:' + shades[i % 4] + ';animation-delay:' + Math.round(Math.abs(i - 6.5) * 32) + 'ms';
         ov.appendChild(b);
       }
     }
