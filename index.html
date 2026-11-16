@@ -81,6 +81,7 @@ a{color:inherit}
 .adw .opt{transition:border-color .2s,background .2s,transform .2s;cursor:pointer}.adw .opt:hover{transform:translateY(-2px)}
 .adw .shot{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.adw .proj:hover .shot{transform:scale(1.04)}
 .adw .qa{transition:background .2s}.adw .qa:hover{background:#f1f5fd}
+.adw .lift,.adw .go{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.adw .proj:hover .lift{transform:translateY(-6px)}.adw .proj:hover .go{transform:rotate(45deg)}
 @media (max-width:760px){.adw .scrim{background:linear-gradient(180deg,rgba(7,11,24,.55) 0%,rgba(7,11,24,.88) 45%,rgba(7,11,24,.6) 100%)!important}.adw .cglow{display:none}.adw .hide-m{display:none}}
 @media (prefers-reduced-motion:reduce){.adw .intro{display:none}.adw .deploy{animation:none;clip-path:none}.adw .rv,.adw .st{opacity:1;transform:none;transition:none}.adw .mline{transform:scaleX(1);transition:none}.adw .mq{animation:none}.adw .w,.adw .rise,.adw .grad{animation:none;opacity:1;filter:none;transform:none}.adw .shine::after,.adw .drip,.adw .pulse{animation:none}.adw .float,.adw .slot{animation:none}.adw .float{transform:none}.adw .slot{opacity:0}}
 
@@ -221,19 +222,29 @@ html{scroll-behavior:smooth}
         <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Des projets qui tournent déjà.</h2>
       </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 24px">
-      <a class="proj" href="https://sen-denta-maquette.vercel.app/apercu-sans-marque.html" target="_blank" rel="noopener" style="text-decoration: none; display: block">
-        <div style="border-radius: 22px; overflow: hidden; background: #070b18; padding: 28px 28px 0; height: 300px">
-          <div class="shot" style="background: #ffffff; border-radius: 12px 12px 0 0; height: 100%; box-shadow: 0 -10px 40px -10px rgba(37,99,235,.5); overflow: hidden; display: flex; flex-direction: column">
-            <div style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid #e3e8f3; flex: none"><span style="width: 9px; height: 9px; border-radius: 50%; background: #e3e8f3"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #e3e8f3"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #e3e8f3"></span></div>
-            <img src="img/sendenta.webp" alt="Page d’accueil du site Sen Denta : mobilier dentaire en couleur" loading="lazy" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover; object-position: top left">
-          </div>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 4px 0">
-          <div><h3 style="margin: 0 0 4px; font-size: 20px; font-weight: 700; letter-spacing: -0.02em">Sen Denta</h3><p style="margin: 0; font-size: 14px; color: #4b5775">Catalogue avec configurateur et devis · Mobilier dentaire</p></div>
-          <span style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid #d4dcec; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></span>
-        </div>
-      </a>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px 32px; align-items: start">
+<a class="proj" href="https://sen-denta-maquette.vercel.app/apercu-sans-marque.html" target="_blank" rel="noopener" style="text-decoration: none; display: block">
+  <div class="lift" style="border-radius: 14px; overflow: hidden; background: #ffffff; border: 1px solid #dfe5f0; box-shadow: 0 30px 60px -30px rgba(7,11,24,.35), 0 8px 20px -12px rgba(7,11,24,.15)">
+    <div style="display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; height: 40px; padding: 0 14px; background: #f3f5f9; border-bottom: 1px solid #e3e8f3">
+      <div style="display: flex; gap: 7px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #ff5f57"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #febc2e"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #28c840"></span></div>
+      <div style="justify-self: center; display: flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 14px; border-radius: 8px; background: #ffffff; border: 1px solid #e3e8f3; font-size: 12px; color: #4b5775; white-space: nowrap; overflow: hidden"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>sen-denta-maquette.vercel.app</div>
+      <span></span>
+    </div>
+    <img src="img/sendenta.webp" alt="Page d’accueil du site Sen Denta" loading="lazy" style="display: block; width: 100%; height: auto">
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px 0"><div><h3 style="margin: 0 0 4px; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; color: #0b1020">Sen Denta</h3><p style="margin: 0; font-size: 14px; color: #4b5775">Catalogue avec configurateur et devis · Mobilier dentaire</p></div><span class="go" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #d4dcec; color: #0b1020; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></span></div>
+</a>
+<a class="proj" href="https://clubvoyages.dz/" target="_blank" rel="noopener" style="text-decoration: none; display: block">
+  <div class="lift" style="border-radius: 14px; overflow: hidden; background: #ffffff; border: 1px solid #dfe5f0; box-shadow: 0 30px 60px -30px rgba(7,11,24,.35), 0 8px 20px -12px rgba(7,11,24,.15)">
+    <div style="display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; height: 40px; padding: 0 14px; background: #f3f5f9; border-bottom: 1px solid #e3e8f3">
+      <div style="display: flex; gap: 7px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #ff5f57"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #febc2e"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #28c840"></span></div>
+      <div style="justify-self: center; display: flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 14px; border-radius: 8px; background: #ffffff; border: 1px solid #e3e8f3; font-size: 12px; color: #4b5775; white-space: nowrap; overflow: hidden"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>clubvoyages.dz</div>
+      <span></span>
+    </div>
+    <img src="img/clubvoyages.webp" alt="Page d’accueil du site Club Voyages" loading="lazy" style="display: block; width: 100%; height: auto">
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px 0"><div><h3 style="margin: 0 0 4px; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; color: #0b1020">Club Voyages</h3><p style="margin: 0; font-size: 14px; color: #4b5775">Site vitrine · Agence de voyages</p></div><span class="go" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #d4dcec; color: #0b1020; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></span></div>
+</a>
     </div>
   </div>
 </section>
