@@ -28,7 +28,7 @@
   var DAYS = { fr: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'], ar: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'] };
   var MONTHS = { fr: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'], ar: ['جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان', 'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'] };
   var T = {
-    fr: { brand: 'Dr Selma Haddad', sub: 'Chirurgien-dentiste · Blida', soins: 'Soins', cabinet: 'Le cabinet', avis: 'Avis', acces: 'Accès', rdvBtn: 'Prendre RDV',
+    fr: { brand: 'Dr Samir Haddad', sub: 'Chirurgien-dentiste · Blida', soins: 'Soins', cabinet: 'Le cabinet', avis: 'Avis', acces: 'Accès', rdvBtn: 'Prendre RDV',
       lead: 'Consultations, soins, esthétique et implants. Un cabinet moderne, des explications claires et des rendez-vous qui tiennent l’horaire.',
       book: 'Prendre rendez-vous', call: 'Appeler', wa: 'WhatsApp', open: 'Ouvert maintenant · ferme à {t}', shut: 'Fermé · ouvre {w} à {t}', today: 'aujourd’hui', tomorrow: 'demain', excep: 'Fermé exceptionnellement',
       t1: 'note des patients', t2: 'ans d’expérience', t3: 'rendez-vous par an', revTag: '230 avis vérifiés', revSub: 'Patients du cabinet',
@@ -41,8 +41,8 @@
       q1: 'Quel soin ?', q2: 'Quel jour ?', q3: 'Quelle heure ?', name: 'Nom et prénom', tel: 'Téléphone', test: '⚡ Remplir avec les infos de test', send: 'Envoyer la demande',
       err: 'Choisissez un soin, un jour, une heure, et indiquez votre nom et un mobile valide.', sentH: 'Demande envoyée !', sentP: 'Le cabinet vous confirme par SMS au {tel}.<br>Demande : {svc}, {when}.', again: 'Faire une autre demande',
       accEb: 'Horaires & accès', accH: 'Facile à trouver, facile à joindre.', closedD: 'Fermé', addr: '12 rue des Orangers, Blida', park: 'Parking à 50 m · accès PMR', itin: 'Itinéraire',
-      foot: '© Cabinet Dr Selma Haddad — site de démonstration ADweb · Photos : Unsplash', mb1: 'Appeler', mb2: 'WhatsApp', mb3: 'Rendez-vous', at: 'à' },
-    ar: { brand: 'د. سلمى حداد', sub: 'جراحة الأسنان · البليدة', soins: 'العلاجات', cabinet: 'العيادة', avis: 'الآراء', acces: 'العنوان', rdvBtn: 'احجز موعدًا',
+      foot: '© Cabinet Dr Samir Haddad — site de démonstration ADweb · Photos : Unsplash', mb1: 'Appeler', mb2: 'WhatsApp', mb3: 'Rendez-vous', at: 'à' },
+    ar: { brand: 'د. سمير حداد', sub: 'جراحة الأسنان · البليدة', soins: 'العلاجات', cabinet: 'العيادة', avis: 'الآراء', acces: 'العنوان', rdvBtn: 'احجز موعدًا',
       lead: 'فحوصات وعلاجات وتجميل وزراعة. عيادة حديثة، شرح واضح، ومواعيد تُحترم.',
       book: 'احجز موعدًا', call: 'اتصل بنا', wa: 'واتساب', open: 'مفتوح الآن · يغلق على {t}', shut: 'مغلق · يفتح {w} على {t}', today: 'اليوم', tomorrow: 'غدًا', excep: 'مغلق استثنائيًا',
       t1: 'تقييم المرضى', t2: 'سنة خبرة', t3: 'موعد في السنة', revTag: '230 رأيًا موثقًا', revSub: 'مرضى العيادة',
@@ -55,7 +55,7 @@
       q1: 'أي علاج؟', q2: 'أي يوم؟', q3: 'أي ساعة؟', name: 'الاسم واللقب', tel: 'الهاتف', test: '⚡ املأ ببيانات تجريبية', send: 'أرسل الطلب',
       err: 'اختر العلاج واليوم والساعة، وأدخل اسمك ورقم هاتف صحيح.', sentH: 'تم إرسال الطلب!', sentP: 'ستؤكد لك العيادة برسالة على {tel}.<br>الطلب: {svc}، {when}.', again: 'طلب جديد',
       accEb: 'الأوقات والعنوان', accH: 'سهل الوصول، سهل الاتصال.', closedD: 'مغلق', addr: '12 شارع البرتقال، البليدة', park: 'موقف سيارات على بعد 50 م', itin: 'الاتجاهات',
-      foot: '© عيادة د. سلمى حداد — موقع تجريبي من ADweb · الصور: Unsplash', mb1: 'اتصال', mb2: 'واتساب', mb3: 'موعد', at: 'على' }
+      foot: '© عيادة د. سمير حداد — موقع تجريبي من ADweb · الصور: Unsplash', mb1: 'اتصال', mb2: 'واتساب', mb3: 'موعد', at: 'على' }
   };
   var TITLE_AR = 'علاج أسنان <em>بلطف</em> في قلب البليدة.';
 
@@ -119,7 +119,7 @@
   // ---------- Site ----------
   // Photos : Unsplash (licence libre, usage commercial autorisé), servies par leur CDN.
   function ph(id, w, h, alt) { return '<img src="https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=72" alt="' + esc(alt) + '" loading="lazy" decoding="async">'; }
-  function heroArt() { return ph('1777331903190-341a3dd0441b', 900, 960, S.lang === 'ar' ? 'طبيبة الأسنان تتحدث مع مريضة' : 'La dentiste échange avec une patiente au cabinet'); }
+  function heroArt() { return ph('1777331903190-341a3dd0441b', 900, 960, S.lang === 'ar' ? 'طبيب الأسنان يتحدث مع مريضة' : 'Le dentiste échange avec une patiente au cabinet'); }
   var ROOMS = ['1606811841689-23dfddce3e95', '1762625570087-6d98fca29531', '1629909613654-28e377c37b09'];
   function room(i) { return ph(ROOMS[i], i === 0 ? 900 : 600, 520, [t('r1'), t('r2'), t('r3')][i]); }
   function mapArt() {
@@ -284,7 +284,7 @@
       '<div class="ed"><div class="box"><h3>Visiteurs par semaine</h3><p class="d">Sur les 12 dernières semaines.</p><div class="chart" aria-label="Visiteurs par semaine">' + weeks.map(function (w, i) { return '<div style="height:' + Math.round(w / mx * 100) + '%" title="' + w + '"><small>S' + (i + 1) + '</small></div>'; }).join('') + '</div><div style="height:22px"></div></div>' +
       '<div class="box"><h3>D’où viennent vos patients</h3><p class="d">Ce qui a amené les visiteurs sur le site.</p><div class="src">' +
       [['Recherche Google', 52], ['Facebook & Instagram', 24], ['Google Maps', 16], ['Lien direct / bouche-à-oreille', 8]].map(function (x) { return '<div><span>' + x[0] + '</span><span>' + x[1] + ' %</span><i><u style="width:' + x[1] / 52 * 100 + '%"></u></i></div>'; }).join('') + '</div></div></div>' +
-      '<div class="ed" style="margin-top:16px"><div class="box"><h3>Votre site dans les résultats de recherche</h3><p class="d">Titre et description travaillés pour donner envie de cliquer.</p><div class="serp"><div class="u"><i>' + ic('tooth', 14) + '</i><span>dr-haddad-dentiste.dz</span></div><div class="ti">Dentiste à Blida — Dr Selma Haddad | Rendez-vous en ligne</div><div class="ds">' + esc(plain) + ' Soins, blanchiment, implants. Ouvert du samedi au jeudi. Prenez rendez-vous en ligne en une minute.</div><div class="rt"><b>★★★★★</b> 4,9 · 230 avis</div></div></div>' +
+      '<div class="ed" style="margin-top:16px"><div class="box"><h3>Votre site dans les résultats de recherche</h3><p class="d">Titre et description travaillés pour donner envie de cliquer.</p><div class="serp"><div class="u"><i>' + ic('tooth', 14) + '</i><span>dr-haddad-dentiste.dz</span></div><div class="ti">Dentiste à Blida — Dr Samir Haddad | Rendez-vous en ligne</div><div class="ds">' + esc(plain) + ' Soins, blanchiment, implants. Ouvert du samedi au jeudi. Prenez rendez-vous en ligne en une minute.</div><div class="rt"><b>★★★★★</b> 4,9 · 230 avis</div></div></div>' +
       '<div class="box"><h3>Pages les plus vues</h3><p class="d">Ce qui intéresse vraiment vos visiteurs.</p><div class="src">' + [['Accueil', 100], ['Implants', 46], ['Blanchiment', 38], ['Rendez-vous', 33]].map(function (x) { return '<div><span>' + x[0] + '</span><span>' + x[1] + ' %</span><i><u style="width:' + x[1] + '%"></u></i></div>'; }).join('') + '</div></div></div>' +
       '<p class="note">Chiffres de démonstration (les clics que vous avez faits sur la démo sont comptés). Chez vous, ce sont vos vraies visites.</p>';
   }
