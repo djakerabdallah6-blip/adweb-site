@@ -218,6 +218,8 @@ h2.h{margin:0 0 14px;font-size:clamp(28px,4cqi,46px);line-height:1.06;letter-spa
 .ubox li::before{content:"";position:absolute;inset-inline-start:4px;top:7px;width:8px;height:8px;border-radius:50%;background:#dc2626}
 .ubox .x{float:right;border:0;background:rgba(255,255,255,.2);color:#fff;width:34px;height:34px;border-radius:50%;font-size:15px}
 .ubox[dir=rtl] .x{float:left}
+/* Écran moyen : on masque le menu texte */
+@container site (max-width:1060px){.lnav,.snav .links{display:none}}
 /* Mobile : conteneur ≤ 760 px */
 @container site (max-width:760px){
   .lnav,.snav .links,.lr .btn.p{display:none}
