@@ -167,7 +167,7 @@
   function cartQty() { return S.cart.reduce(function (a, c) { return a + c.q; }, 0); }
   function cartSub() { return S.cart.reduce(function (a, c) { return a + c.q * c.price; }, 0); }
   function renderCartCount(bump) {
-    var n = $('#cc'); n.textContent = cartQty(); var nl = $('#ccL'); if (nl) nl.textContent = cartQty();
+    var n = $('#cc'); n.textContent = cartQty();
     if (bump) { n.classList.add('bump'); setTimeout(function () { n.classList.remove('bump'); }, 450); }
   }
 
@@ -261,8 +261,6 @@
     S.view = v; $('#shop').hidden = v !== 'shop'; $('#admin').hidden = v !== 'admin';
     $('#sw').textContent = v === 'shop' ? 'Voir l’admin' : 'Voir la boutique';
     closeCart(); closeProduct(); $('#checkout').hidden = true; document.body.style.overflow = '';
-    var hv = $('.hvid'); if (v === 'admin' && hv) hv.pause();
-    if (v === 'shop' && window.DN) DN.setPage('catalog');
     if (v === 'admin') renderAdmin(); else renderShop();
     window.scrollTo(0, 0);
   }
@@ -388,12 +386,11 @@
   function click(sel) { var x = typeof sel === 'string' ? $(sel) : sel; if (x) x.click(); }
   function firstCard() { return $('#grid .pc'); }
   function freshOrder() { return S.lastOrder && orders.filter(function (o) { return o.id === S.lastOrder.id; })[0]; }
-  function ensureShop() { if (S.view !== 'shop') go('shop'); if (window.DN && DN.page() !== 'catalog') DN.setPage('catalog'); }
+  function ensureShop() { if (S.view !== 'shop') go('shop'); }
   function ensureAdmin() { if (S.view !== 'admin') go('admin'); }
   var tour = Tour.create({
     welcome: { title: 'Bienvenue chez Dar Nour', text: 'Une vraie boutique, pas une capture d’écran. En 3 minutes, vous passez une commande comme un client, puis vous la traitez comme le gérant.' },
     steps: [
-      { title: 'La première impression', text: 'Plein écran, une vidéo qui pose l’ambiance, et le menu intégré dedans. Le visiteur comprend en une seconde ce que vous vendez et d’où ça vient. Les produits ont leur propre page : on y entre comme dans une boutique.', target: '#ctaDiscover', hint: 'Appuyez sur « Découvrir les produits »', enter: function () { if (S.view !== 'shop') go('shop'); if (window.DN && DN.page() !== 'landing') DN.setPage('landing'); }, done: function () { return window.DN && DN.page() === 'catalog' && !DN.busy(); }, act: function () { DN.goto('catalog'); } },
       { title: 'Des filtres qui se construisent seuls', text: 'Rayon, origine, format : rien n’est écrit à la main. Les filtres sont tirés de votre catalogue. Ajoutez un produit de Tlemcen dans l’admin, l’origine « Tlemcen » apparaît ici toute seule.', target: '#filters', enter: ensureShop },
       { title: 'Mettez-vous à la place du client', text: 'Une cliente cherche du miel pur pour sa famille. Elle ne veut voir que ce qui la concerne.', target: '#fRayon', hint: 'Appuyez sur « Miels »', done: function () { return S.rayon === 'Miels'; }, act: function () { ensureShop(); click('#fRayon [data-v="Miels"]'); } },
       { title: 'La boutique s’adapte', text: 'Il ne reste que les miels, et les autres filtres se sont ajustés : les origines et les formats proposés sont ceux des miels, plus de « 5 L » qui traîne. Le client ne tombe jamais sur un choix vide.', target: '#grid' },
