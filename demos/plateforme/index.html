@@ -3,15 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Démo site vitrine : un site qui travaille pour vous · ADweb</title>
-<meta name="description" content="Essayez un vrai site vitrine ADweb pour le dentaire : vidéo, simulateur de devis, rendez-vous en ligne, agenda et rappels SMS.">
-<meta name="robots" content="noindex, nofollow">
+<title>Démo plateforme de gestion : site, rendez-vous et agenda · ADweb</title>
+<meta name="description" content="Essayez une plateforme de gestion ADweb pour cabinet dentaire : rendez-vous en ligne, simulateur de devis, agenda, rappels SMS et statistiques.">
 <meta name="theme-color" content="#070b18">
-<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../demo.css">
+<link rel="stylesheet" href="../demo.css">
 <style>
 body{background:#e9eef6}
 /* Barre démo */
@@ -338,12 +337,11 @@ h2.h{margin:0 0 14px;font-size:clamp(28px,4cqi,46px);line-height:1.06;letter-spa
 .pr2 input{border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;min-height:40px;width:100%;text-align:right}
 </style>
 </head>
-<body>
+<body data-metier="cabinet">
 
 <div class="dbar">
-  <a href="../../../#demos" aria-label="Retour au site ADweb"><span aria-hidden="true">←</span> AD<b>web</b> <span class="tag">· Démo · Site vitrine</span></a>
+  <a href="../../#demos" aria-label="Retour au site ADweb"><span aria-hidden="true">←</span> AD<b>web</b> <span class="tag" id="dTag">· Démo · Plateforme de gestion</span></a>
   <div class="dmid">
-    <select class="sect" id="sectorSel" aria-label="Métier présenté"></select>
     <div class="dev" id="devToggle" role="group" aria-label="Aperçu">
       <button type="button" data-dev="desktop" class="on"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg>Ordinateur</button>
       <button type="button" data-dev="phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Téléphone</button>
@@ -369,8 +367,8 @@ h2.h{margin:0 0 14px;font-size:clamp(28px,4cqi,46px);line-height:1.06;letter-spa
 <button class="notif" id="notif" type="button" aria-live="assertive"></button>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="../../tour.js"></script>
-<script src="sectors.js"></script>
-<script src="vitrine.js"></script>
+<script src="../tour.js"></script>
+<script src="../site-vitrine/sectors.js"></script>
+<script src="../site-vitrine/vitrine.js"></script>
 </body>
 </html>
