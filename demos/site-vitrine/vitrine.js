@@ -45,6 +45,15 @@
     check: '<path d="M5 12l5 5L20 7"/>', alert: '<path d="M12 3l10 18H2z"/><path d="M12 10v4M12 17h.01"/>', map: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'
   };
   function ic(k, s) { return '<svg width="' + (s || 22) + '" height="' + (s || 22) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[k] || IC.spark) + '</svg>'; }
+  // Emblèmes des logos (viewBox 24) : un cercle fin + le symbole du métier
+  var MARK = {
+    chair: ['M8.4 6.6c.9 0 1.6.6 1.8 1.5l.8 4.2h5a1.4 1.4 0 0 1 1.4 1.4v.6h-6.3a1.4 1.4 0 0 1-1.4-1.1L8.2 7.9a1.1 1.1 0 0 1 .2-1.3z', 'M12.4 14.3v2.9M10 17.4h4.9M16.3 12.3l1.3-2.6'],
+    tooth: ['M9.4 7.2c-1.4 0-2.3 1.1-2.3 2.6 0 1.7.9 2.9 1.3 4.9.2 1.1.6 2.9 1.5 2.9 1 0 .9-2.9 2.1-2.9s1.1 2.9 2.1 2.9c.9 0 1.3-1.8 1.5-2.9.4-2 1.3-3.2 1.3-4.9 0-1.5-.9-2.6-2.3-2.6-1.1 0-1.7.7-2.6.7s-1.5-.7-2.6-.7z']
+  };
+  function markSvg(color, size) {
+    var m = MARK[sec().logo.mark];
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="' + color + '" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="11"/><circle cx="12" cy="12" r="9.6" stroke-opacity=".35"/>' + m.map(function (d) { return '<path d="' + d + '"/>'; }).join('') + '</svg>';
+  }
   function img(src, w, h, alt) { return '<img src="' + src + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=72" alt="' + esc(alt || '') + '" loading="lazy" decoding="async">'; }
 
   // ---------- Horaires, statut, créneaux ----------
@@ -127,7 +136,9 @@
   // ---------- Thème ----------
   function applyTheme() {
     var th = sec().theme, st = $('#site').style;
-    st.setProperty('--p', th.p); st.setProperty('--pd', th.pd); st.setProperty('--pt', th.pt); st.setProperty('--bg', th.bg); st.setProperty('--bg2', th.bg2); st.setProperty('--card', th.card); st.setProperty('--glow', th.glow);
+    ['p', 'pd', 'pt', 'bg', 'bg2', 'card', 'ink', 'mut', 'bd', 'field', 'deep', 'on', 'eb', 'hl', 'urg', 'urgInk'].forEach(function (k) { st.setProperty('--' + k, th[k]); });
+    $('#site').classList.toggle('dark', !!th.dark);
+    document.body.style.background = th.dark ? '#050506' : '#e9eef6';
   }
 
   // ---------- Rendu du site ----------
@@ -140,7 +151,7 @@
     var v = video(); $('.vbg').appendChild(v); playVideo();
     renderEst(); setBa(S.ba);
   }
-  function logoHtml() { var s = sec(); return '<span class="mk">' + ic(s.icon, 22) + '</span><span><b>' + esc(L(s.brand)) + '</b><small>' + esc(L(s.sub)) + '</small></span>'; }
+  function logoHtml(onDark) { var s = sec(), th = s.theme; return '<span class="lmk">' + markSvg(onDark ? th.hl : th.p, 40) + '</span><span class="lwm' + (s.logo.upper ? ' up' : '') + '"><b>' + esc(L(s.brand)) + '</b><small>' + esc(L(s.sub)) + '</small></span>'; }
   function homePage() {
     var s = sec(), st = status(), nav = L(s.nav), ids = ['s-svc', 's-est', 's-ba', 's-rev', 's-acc'], today = new Date().getDay();
     var h1 = S.lang === 'fr' && C().title ? esc(C().title) : L(s.hero.h1);
@@ -148,18 +159,18 @@
     var order = [6, 0, 1, 2, 3, 4, 5];
     return (C().closed ? '<div class="closed" id="closedBanner" role="status">⚠ ' + esc(C().closedMsg) + '</div>' : '') +
       '<section class="landing" id="home"><div class="vbg"></div>' +
-      '<header class="lhead"><div class="in"><a class="logo" href="#" data-noop>' + logoHtml() + '</a>' +
+      '<header class="lhead"><div class="in"><a class="logo" href="#" data-noop>' + logoHtml(true) + '</a>' +
       '<nav class="lnav">' + nav.map(function (n, i) { return '<a href="#' + ids[i] + '" data-jump="' + ids[i] + '">' + esc(n) + '</a>'; }).join('') + '</nav>' +
       '<div class="lr"><div class="lang" id="langSw" role="group" aria-label="Langue">' + [['fr', 'FR'], ['ar', 'ع'], ['en', 'EN']].map(function (l) { return '<button type="button" data-lang="' + l[0] + '" class="' + (S.lang === l[0] ? 'on' : '') + '">' + l[1] + '</button>'; }).join('') + '</div>' +
       '<button class="ubtn" type="button" id="urgBtn" data-urg>' + ic('alert', 16) + '<span>' + esc(L(s.urgent.btn)) + '</span></button></div></div></header>' +
       '<div class="hin"><div class="live rise' + (st.open ? '' : ' off') + '" id="live" style="animation-delay:.1s"><i></i>' + esc(st.txt) + '</div>' +
       '<p class="eb rise" style="animation-delay:.2s">' + esc(L(s.hero.eb)) + '</p><h1 class="rise" style="animation-delay:.3s">' + h1 + '</h1><p class="lead rise" style="animation-delay:.45s">' + esc(L(s.hero.lead)) + '</p>' +
-      '<div class="cta rise" style="animation-delay:.6s"><button class="btn w" type="button" id="heroBook" data-book>' + ic('cal', 18) + esc(L(s.hero.book)) + '</button><button class="btn g" type="button" data-jump="s-est">' + esc(L(s.hero.second)) + '</button></div>' +
+      '<div class="cta rise" style="animation-delay:.6s">' + (s.hero.cat ? '<button class="btn w" type="button" id="heroCat" data-jump="s-svc">' + esc(L(s.hero.cat)) + ' <span aria-hidden="true">→</span></button>' : '<button class="btn w" type="button" id="heroBook" data-book>' + ic('cal', 18) + esc(L(s.hero.book)) + '</button>') + '<button class="btn g" type="button" data-jump="s-est">' + esc(L(s.hero.second)) + '</button></div>' +
       '<div class="trust rise" style="animation-delay:.75s">' + s.trust.map(function (x) { return '<div><b>' + x[0] + '</b>' + esc(L(x[1])) + '</div>'; }).join('') + '</div></div></section>' +
-      '<nav class="snav"><div class="in"><a class="logo" href="#" data-top>' + logoHtml() + '</a><div class="links">' + nav.map(function (n, i) { return '<a href="#' + ids[i] + '" data-jump="' + ids[i] + '">' + esc(n) + '</a>'; }).join('') + '</div><button class="btn p" type="button" data-book>' + esc(L(s.hero.book)) + '</button></div></nav>' +
+      '<nav class="snav"><div class="in"><a class="logo" href="#" data-top>' + logoHtml(!!sec().theme.dark) + '</a><div class="links">' + nav.map(function (n, i) { return '<a href="#' + ids[i] + '" data-jump="' + ids[i] + '">' + esc(n) + '</a>'; }).join('') + '</div><button class="btn p" type="button" data-book>' + esc(L(s.hero.book)) + '</button></div></nav>' +
       '<div class="tex">' +
       '<section class="blk" id="s-svc"><div class="in"><p class="eb">' + esc(L(s.services.eb)) + '</p><h2 class="h">' + esc(L(s.services.h)) + '</h2><p class="lead">' + esc(L(s.services.lead)) + '</p><div class="grid3">' +
-      models.map(function (it) { return '<article class="svc">' + (it.img ? '<div class="ph">' + img(it.img, 640, 400, L(it.n)) + '</div>' : '<div class="ic">' + ic(it.ic) + '</div>') + '<h3>' + esc(L(it.n)) + '</h3><p>' + esc(L(it.d)) + '</p><span class="pr">' + priceTxt(it) + '</span></article>'; }).join('') + '</div></div></section>' +
+      models.map(function (it) { return '<article class="svc">' + (it.img ? '<div class="ph">' + img(it.img, 640, 400, L(it.n)) + '</div>' : '<div class="ic">' + ic(it.ic) + '</div>') + '<h3>' + esc(L(it.n)) + '</h3><p>' + esc(L(it.d)) + '</p><div class="svf"><span class="pr">' + priceTxt(it) + '</span>' + (it.model ? '<button class="lk" type="button" data-cfg="' + it.id + '">' + esc(L({ fr: 'Configurer', ar: 'صمّم', en: 'Configure' })) + ' →</button>' : '') + '</div></article>'; }).join('') + '</div></div></section>' +
       '<section class="blk alt" id="s-est"><div class="in"><p class="eb">' + esc(L(s.estim.eb)) + '</p><h2 class="h">' + esc(L(s.estim.h)) + '</h2><p class="lead">' + esc(L(s.estim.lead)) + '</p><div class="est" id="estBox"></div></div></section>' +
       '<section class="blk" id="s-ba"><div class="in"><p class="eb">' + esc(L(s.ba.eb)) + '</p><h2 class="h">' + esc(L(s.ba.h)) + '</h2><p class="lead">' + esc(L(s.ba.lead)) + '</p>' +
       '<div class="ba" id="ba">' + img(s.ba.img, 1400, 700, L(s.ba.h)).replace('<img ', '<img class="af" ') + img(s.ba.img, 1400, 700, '').replace('<img ', '<img class="bf" style="filter:' + s.ba.before + '" ') +
@@ -173,10 +184,11 @@
       order.map(function (d) { var h = C().hours[d]; return '<div class="' + (d === today ? 'today' : '') + '"><span>' + DAYS[S.lang][d].charAt(0).toUpperCase() + DAYS[S.lang][d].slice(1) + '</span><span>' + (h && !(C().closed && d === today) ? h[0] + ' – ' + h[1] : t('closedD')) + '</span></div>'; }).join('') +
       '</div><div class="map">' + mapArt() + '<div class="ad"><span><b>' + esc(L(s.access.addr)) + '</b><small>' + esc(L(s.access.park)) + '</small></span><button class="btn p sm" type="button" data-itin>' + ic('map', 16) + t('itin') + '</button></div></div></div></div></section>' +
       '</div><footer class="foot"><div class="in"><span>© ' + esc(L(s.brand)) + ' — ADweb · ' + t('photos') + '</span><span>' + esc(C().phone) + '</span></div></footer>' +
-      '<div class="mbar" id="mbar"><button class="btn o" type="button" data-call>' + ic('phone', 16) + t('call') + '</button><button class="btn wa" type="button" data-wa>' + ic('wa', 16) + t('wa') + '</button><button class="btn p" type="button" data-book>' + ic('cal', 16) + esc(isMat() ? L({ fr: 'Démo', ar: 'عرض', en: 'Demo' }) : L({ fr: 'RDV', ar: 'موعد', en: 'Book' })) + '</button></div>';
+      '<div class="mbar" id="mbar"><button class="btn o" type="button" data-call>' + ic('phone', 16) + t('call') + '</button><button class="btn wa" type="button" data-wa>' + ic('wa', 16) + t('wa') + '</button><button class="btn p" type="button" data-book>' + ic('cal', 16) + esc(isMat() ? L({ fr: 'Essai', ar: 'تجربة', en: 'Try' }) : L({ fr: 'RDV', ar: 'موعد', en: 'Book' })) + '</button></div>';
   }
   function mapArt() {
-    return '<svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="340" fill="#e7efe6"/><g stroke="#fff" stroke-width="14" fill="none"><path d="M-10 90h620M-10 230h620M130-10v360M420-10v360M0 340L600 0"/></g><g stroke="#fff" stroke-width="6" fill="none" opacity=".8"><path d="M-10 160h620M270-10v360M520-10v360"/></g><rect x="150" y="105" width="100" height="110" rx="6" fill="#d7e5d4"/><rect x="440" y="250" width="150" height="80" rx="6" fill="#cfe0f3"/><g transform="translate(300 128)"><circle r="34" fill="' + sec().theme.p + '" opacity=".15"/><path d="M0 18s-16-14-16-26a16 16 0 0 1 32 0C16 4 0 18 0 18z" fill="' + sec().theme.p + '" transform="translate(0 -8)"/><circle cy="-16" r="6" fill="#fff"/></g></svg>';
+    var dk = sec().theme.dark, base = dk ? '#1a1a1d' : '#e9e3d8', road = dk ? '#26262b' : '#fbf9f5';
+    return ('<svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="340" fill="#e7efe6"/><g stroke="#fff" stroke-width="14" fill="none"><path d="M-10 90h620M-10 230h620M130-10v360M420-10v360M0 340L600 0"/></g><g stroke="#fff" stroke-width="6" fill="none" opacity=".8"><path d="M-10 160h620M270-10v360M520-10v360"/></g><rect x="150" y="105" width="100" height="110" rx="6" fill="#d7e5d4"/><rect x="440" y="250" width="150" height="80" rx="6" fill="#cfe0f3"/><g transform="translate(300 128)"><circle r="34" fill="' + sec().theme.p + '" opacity=".15"/><path d="M0 18s-16-14-16-26a16 16 0 0 1 32 0C16 4 0 18 0 18z" fill="' + sec().theme.p + '" transform="translate(0 -8)"/><circle cy="-16" r="6" fill="#fff"/></g></svg>').replace(/#e7efe6/g, base).replace(/#fff"/g, road + '"').replace(/#d7e5d4|#cfe0f3/g, dk ? '#202024' : '#e2dacb');
   }
 
   // Simulateur (cabinet) / configurateur (fournisseur)
@@ -198,14 +210,14 @@
       (S.sel.length ? '<div class="tot" id="estTot">' + moneyRange(e) + '</div>' + (e.d ? '<div style="color:#94a3b8;font-size:13px;font-weight:600">≈ ' + e.d + ' ' + t('min') + '</div>' : '') +
         '<ul>' + S.sel.map(function (id) { var it = item(id); return '<li><span>' + esc(L(it.n)) + '</span><span>' + (it.min ? num(it.min) : '—') + '</span></li>'; }).join('') + (col ? '<li><span>' + esc(L({ fr: 'Sellerie', ar: 'التنجيد', en: 'Upholstery' })) + '</span><span>' + esc(L(col[3])) + '</span></li>' : '') + '</ul><p>' + t('estNote') + '</p>'
         : '<div class="tot" id="estTot">—</div><p style="margin-top:10px">' + t('estNone') + '</p>') +
-      '<button class="btn p" type="button" id="estBook" data-book' + (S.sel.length ? '' : ' disabled') + '>' + ic('cal', 18) + t('estBook') + '</button></aside>';
+      '<button class="btn p" type="button" id="estBook" data-book' + (S.sel.length ? '' : ' disabled') + '>' + ic('cal', 18) + (s.estim.book ? esc(L(s.estim.book)) : t('estBook')) + '</button></aside>';
   }
   function setBa(v) { S.ba = v; var b = $('#ba'); if (b) b.style.setProperty('--pos', v + '%'); }
 
   // Page rendez-vous / démonstration
   function rdvPage() {
     var s = sec();
-    return '<div class="rdvp tex"><header class="rhead"><div class="in"><div class="top"><a class="logo" href="#" data-home style="color:#fff">' + logoHtml() + '</a><a class="bk" href="#" data-home>' + t('back') + '</a></div>' +
+    return '<div class="rdvp tex"><header class="rhead"><div class="in"><div class="top"><a class="logo" href="#" data-home style="color:#fff">' + logoHtml(true) + '</a><a class="bk" href="#" data-home>' + t('back') + '</a></div>' +
       '<h1>' + esc(L(s.booking.h)) + '</h1><p>' + esc(L(s.booking.lead)) + '</p></div></header>' +
       '<div class="in"><div class="rbody"><div class="rbox" id="rbox"></div><aside class="sum" id="rsum"></aside></div></div></div>';
   }
@@ -279,6 +291,7 @@
     if (b.hasAttribute('data-itin')) { toast(L({ fr: 'Sur le vrai site, l’itinéraire s’ouvre dans Google Maps.', ar: 'في الموقع الحقيقي، تُفتح الاتجاهات في خرائط Google.', en: 'On the real site, directions open in Google Maps.' })); return; }
     if (b.dataset.sel) { toggleSel(b.dataset.sel); if (S.page === 'rdv') renderBooking(); else { renderEst(); var tt = $('#estTot'); if (tt) { tt.classList.add('flash'); setTimeout(function () { tt.classList.remove('flash'); }, 500); } } return; }
     if (b.dataset.color) { S.color = b.dataset.color; renderEst(); return; }
+    if (b.dataset.cfg) { if (S.sel.indexOf(b.dataset.cfg) < 0) toggleSel(b.dataset.cfg); renderEst(); var ex = $('#s-est'); if (ex) ex.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     if (b.dataset.mode) { S.mode = b.dataset.mode; renderBooking(); return; }
     if (b.dataset.day) { S.day = b.dataset.day; S.slot = null; renderBooking(); return; }
     if (b.dataset.slot && !b.disabled) { S.slot = b.dataset.slot; renderBooking(); return; }
@@ -311,18 +324,23 @@
     var d = Math.min(window.devicePixelRatio || 1, 1.5), W = window.innerWidth, H = window.innerHeight;
     c.width = W * d; c.height = H * d; document.body.appendChild(c);
     var x = c.getContext('2d'); x.setTransform(d, 0, 0, d, 0, 0);
-    var th = sec().theme, D1 = 620, HOLD = 620, D2 = 720, swapped = false, R = Math.hypot(Math.max(x0, W - x0), Math.max(y0, H - y0)) * 1.05;
-    var iconPath = new Path2D(sec().icon === 'chair' ? 'M6 3c1.5 0 2.5 1 2.8 2.5L10 12h7a2 2 0 0 1 2 2v1H9.2a2 2 0 0 1-2-1.6L5 5.2A1.8 1.8 0 0 1 6 3zM12 15v4M8 21h8M18 12l2-4' : 'M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 5 2.2 8.5.4 2 1 5 2.6 5 1.8 0 1.6-5 4.2-5s2.4 5 4.2 5c1.6 0 2.2-3 2.6-5 .7-3.5 2.2-5.5 2.2-8.5C21 5 19.5 3 17 3c-2 0-3 1.2-5 1.2S9 3 7 3z');
+    var th = sec().theme, D1 = 620, HOLD = 700, D2 = 720, swapped = false, R = Math.hypot(Math.max(x0, W - x0), Math.max(y0, H - y0)) * 1.05;
+    var paths = MARK[sec().logo.mark].map(function (d) { return new Path2D(d); }), up = sec().logo.upper;
     var brand = L(sec().brand), sub = L(sec().sub);
-    function fill() { var g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, th.p); g.addColorStop(1, th.pd); return g; }
+    function fill() { return th.deep; }
     function logo(a) {
-      var s = Math.min(1, W / 720);
-      x.save(); x.globalAlpha = a; x.translate(W / 2, H / 2 + (1 - a) * 16);
-      x.fillStyle = 'rgba(255,255,255,.14)'; x.beginPath(); x.arc(0, -70 * s, 44 * s, 0, Math.PI * 2); x.fill();
-      x.save(); x.translate(-24 * s, -94 * s); x.scale(2 * s, 2 * s); x.strokeStyle = '#fff'; x.lineWidth = 1.6; x.lineCap = 'round'; x.lineJoin = 'round'; x.stroke(iconPath); x.restore();
+      var s = Math.min(1, W / 720), serif = S.lang === 'ar' ? '"Noto Kufi Arabic", serif' : '"Cormorant Garamond", Georgia, serif';
+      x.save(); x.globalAlpha = a; x.translate(W / 2, H / 2 + (1 - a) * 14);
+      x.save(); x.translate(-36 * s, -118 * s); x.scale(3 * s, 3 * s); x.strokeStyle = th.hl; x.lineWidth = .9; x.lineCap = 'round'; x.lineJoin = 'round';
+      x.beginPath(); x.arc(12, 12, 11, 0, Math.PI * 2); x.stroke(); x.globalAlpha = a * .35; x.beginPath(); x.arc(12, 12, 9.6, 0, Math.PI * 2); x.stroke(); x.globalAlpha = a;
+      paths.forEach(function (pp) { x.stroke(pp); }); x.restore();
       x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle';
-      x.font = '800 ' + Math.round(54 * s) + 'px ' + (S.lang === 'ar' ? '"Noto Kufi Arabic",' : '') + '"Plus Jakarta Sans", sans-serif'; x.fillText(brand, 0, 14 * s);
-      x.font = '700 ' + Math.round(14 * s) + 'px ' + (S.lang === 'ar' ? '"Noto Kufi Arabic",' : '') + '"Plus Jakarta Sans", sans-serif'; x.fillStyle = 'rgba(255,255,255,.75)'; x.fillText(sub.toUpperCase(), 0, 58 * s);
+      x.font = '600 ' + Math.round((up ? 50 : 62) * s) + 'px ' + serif;
+      if ('letterSpacing' in x) x.letterSpacing = up ? Math.round(14 * s) + 'px' : '0px';
+      x.fillText(up ? brand.toUpperCase() : brand, up ? 7 * s : 0, 18 * s);
+      x.fillStyle = th.hl; x.font = '700 ' + Math.round(12 * s) + 'px "Plus Jakarta Sans", sans-serif';
+      if ('letterSpacing' in x) x.letterSpacing = Math.round(4 * s) + 'px';
+      x.fillText(sub.toUpperCase(), 2 * s, 64 * s);
       x.restore();
     }
     return new Promise(function (res) {
@@ -365,7 +383,7 @@
   // ---------- Notification ----------
   function notify(r) {
     var s = sec(), d = dfrom(r.day);
-    $('#notif').innerHTML = '<span class="ic" style="background:' + s.theme.p + '">' + ic(s.icon, 20) + '</span><span><span class="t">' + esc(L(s.brand)) + ' · ' + (isMat() ? 'Demande de démo' : 'Demande de RDV') + ' <span>maintenant</span></span><span class="m">' + esc(r.name) + ' — ' + esc(r.items.map(function (i) { return item(i).n.fr; }).join(', ')) + ', ' + dlabel(d, 'fr', true) + ' à ' + r.slot + '</span></span>';
+    $('#notif').innerHTML = '<span class="ic" style="background:' + s.theme.deep + '">' + markSvg(s.theme.hl, 30) + '</span><span><span class="t">' + esc(L(s.brand)) + ' · ' + (isMat() ? 'Demande d’essai' : 'Demande de RDV') + ' <span>maintenant</span></span><span class="m">' + esc(r.name) + ' — ' + esc(r.items.map(function (i) { return item(i).n.fr; }).join(', ')) + ', ' + dlabel(d, 'fr', true) + ' à ' + r.slot + '</span></span>';
     $('#notif').classList.add('on'); S.notified = r.id;
   }
   $('#notif').onclick = function () { $('#notif').classList.remove('on'); S.hot = S.notified; S.tab = 'req'; go('admin'); };
@@ -376,7 +394,7 @@
   function whenFr(r) { return dlabel(dfrom(r.day), 'fr', true) + ' à ' + r.slot; }
   function renderAdmin() {
     var s = sec();
-    $('#aLogo').innerHTML = ic(s.icon, 22); $('#aLogo').style.background = s.theme.p; $('#aName').textContent = s.brand.fr;
+    $('#aLogo').innerHTML = markSvg(s.theme.hl, 30); $('#aLogo').style.background = s.theme.deep; $('#aName').textContent = s.brand.fr;
     var n = REQS[S.sector].filter(function (r) { return r.st === 'new'; }).length;
     var tabs = isPlat() ? [['agenda', 'Agenda'], ['req', s.admin.reqTab], ['stats', 'Statistiques'], ['site', 'Mon site']] : [['req', s.admin.reqTab], ['stats', 'Statistiques'], ['site', 'Mon site']];
     if (!isPlat() && S.tab === 'agenda') S.tab = 'req';
@@ -451,7 +469,7 @@
   }
   function renderStats() {
     var st = STATS[S.sector], weeks = [212, 238, 251, 263, 241, 288, 302, 319, 297, 334, 352, 371], mx = Math.max.apply(null, weeks), a = sec().admin;
-    $('#pane').innerHTML = '<div class="kpis" id="skpis"><div class="kpi"><small>Visiteurs (30 j)</small><b>' + num(st.visits) + '</b><em>+22 %</em></div><div class="kpi"><small>Appels depuis le site</small><b>' + st.calls + '</b><em>+9</em></div><div class="kpi"><small>Clics WhatsApp</small><b>' + st.wa + '</b><em>+17</em></div><div class="kpi"><small>' + (isMat() ? 'Demandes de démo' : 'Demandes de RDV') + '</small><b>' + st.req + '</b><em>' + num(st.est) + ' simulations de devis</em></div></div>' +
+    $('#pane').innerHTML = '<div class="kpis" id="skpis"><div class="kpi"><small>Visiteurs (30 j)</small><b>' + num(st.visits) + '</b><em>+22 %</em></div><div class="kpi"><small>Appels depuis le site</small><b>' + st.calls + '</b><em>+9</em></div><div class="kpi"><small>Clics WhatsApp</small><b>' + st.wa + '</b><em>+17</em></div><div class="kpi"><small>' + (isMat() ? 'Demandes d’essai' : 'Demandes de RDV') + '</small><b>' + st.req + '</b><em>' + num(st.est) + ' simulations de devis</em></div></div>' +
       '<div class="ed"><div class="box" id="perf"><h3>Performance du site</h3><p class="d">Exemple de rapport Lighthouse, l’outil de mesure de Google : vitesse, lisibilité, bonnes pratiques et référencement.</p><div class="gauges">' + gauge(97, 'Vitesse') + gauge(100, 'Accessibilité') + gauge(100, 'Bonnes pratiques') + gauge(100, 'Référencement') + '</div></div>' +
       '<div class="box"><h3>D’où viennent vos ' + (isMat() ? 'clients' : 'patients') + '</h3><p class="d">Ce qui a amené les visiteurs sur le site.</p><div class="src">' + [['Recherche Google', 52], ['Facebook & Instagram', 24], ['Google Maps', 16], ['Lien direct / bouche-à-oreille', 8]].map(function (x) { return '<div><span>' + x[0] + '</span><span>' + x[1] + ' %</span><i><u style="width:' + x[1] / 52 * 100 + '%"></u></i></div>'; }).join('') + '</div></div></div>' +
       '<div class="ed" style="margin-top:16px"><div class="box"><h3>Visiteurs par semaine</h3><p class="d">Sur les 12 dernières semaines.</p><div class="chart">' + weeks.map(function (w, i) { return '<div style="height:' + Math.round(w / mx * 100) + '%" title="' + w + '"><small>S' + (i + 1) + '</small></div>'; }).join('') + '</div><div style="height:22px"></div></div>' +
@@ -538,16 +556,16 @@
         buttons: '<a class="b pri" href="../../#contact">Je veux ma plateforme</a>' }
     ]);
   } else {
-    welcome = { title: 'Bienvenue chez Kalimed', text: 'Un vrai site vitrine, pas une maquette. En 3 minutes : vidéo plein écran, SAV express, configurateur de fauteuil avec prix en direct, et demande de démonstration.' };
+    welcome = { title: 'Bienvenue chez Kalimed', text: 'Un vrai site vitrine, pas une maquette. En 3 minutes : vidéo plein écran, catalogue, SAV express, configurateur de fauteuil avec prix en direct, et demande d’essai.' };
     steps = [
-      first('Plein écran, une vraie vidéo du produit, et le menu intégré dedans. En une seconde, le visiteur comprend ce que vous vendez et comment vous contacter.'),
+      first('Plein écran, une vraie vidéo du produit, et le menu intégré dedans. Deux boutons clairs : voir tous les fauteuils, ou configurer le sien.'),
       { title: 'Le SAV, en un geste', text: 'Un fauteuil en panne, c’est un cabinet à l’arrêt. Le bouton rouge propose d’appeler un technicien ou d’envoyer une photo sur WhatsApp, avec les bons réflexes.', target: '#urgBtn', hint: 'Appuyez sur « SAV express »', enter: function () { ensureHome(); }, done: function () { return S.umod; }, act: function () { openUrgent(); } },
       { title: 'Rassurer vos clients', text: 'Vos clients savent qu’ils ne seront pas seuls après l’achat. C’est souvent ce qui fait signer.', target: '.ubox' }
     ].concat(deviceSteps).concat([
       common.lang,
       { title: 'Le configurateur', text: 'On repasse en français. Le dentiste choisit son fauteuil, la couleur de sellerie et ses équipements : le prix se calcule en direct.', target: '#s-est', hint: 'Choisissez un autre fauteuil ou une couleur', enter: function () { if (S.lang !== 'fr') { S.lang = 'fr'; renderSite(); } setTimeout(function () { var x = $('#s-est'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80); }, done: function () { return S.sel.indexOf('k3') < 0 || S.color !== 'bleu'; }, act: function () { click('[data-sel="k5"]'); setTimeout(function () { click('[data-color="menthe"]'); }, 400); } },
       common.ba('Le visiteur voit la différence d’un équipement neuf. Ici c’est une simulation clairement signalée ; chez vous, ce seront vos vraies installations.'),
-      { title: 'On demande une démo', text: 'La configuration part directement dans la demande de démonstration, avec une transition aux couleurs de la marque.', target: '#estBook', hint: 'Appuyez sur « Réserver avec cette sélection »', enter: function () { var x = $('#estBook'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, done: function () { return S.page === 'rdv' && !busy; }, act: function () { click('#estBook'); } },
+      { title: 'On vient l’essayer', text: 'La configuration part directement dans la demande d’essai, avec une transition aux couleurs de la marque.', target: '#estBook', hint: 'Appuyez sur « Essayer cette configuration »', enter: function () { var x = $('#estBook'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, done: function () { return S.page === 'rdv' && !busy; }, act: function () { click('#estBook'); } },
       common.slot('L’équipement choisi est déjà coché. Le client choisit où (showroom, son cabinet ou en visio), puis le jour et l’heure.'),
       common.fill, common.send,
       common.notif('La demande arrive aussitôt sur le téléphone du commercial.'),

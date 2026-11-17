@@ -46,7 +46,8 @@
     cabinet: {
       key: 'cabinet', label: { fr: 'Cabinet dentaire', ar: 'عيادة أسنان', en: 'Dental practice' },
       brand: { fr: 'Ibtissama', ar: 'ابتسامة', en: 'Ibtissama' }, sub: { fr: 'Cabinet dentaire · Blida', ar: 'عيادة أسنان · البليدة', en: 'Dental practice · Blida' }, icon: 'tooth',
-      theme: { p: '#0f766e', pd: '#0b4f4a', pt: '#e3f3ef', bg: '#eaf4f0', bg2: '#dceee7', card: '#f7fbf9', glow: 'rgba(94,234,212,.35)' },
+      theme: { dark: 0, p: '#1f4a43', pd: '#163731', pt: '#ece5d8', bg: '#f4f0e9', bg2: '#ebe5da', card: '#fbf9f5', ink: '#1c1917', mut: '#6b645c', bd: 'rgba(28,25,23,.11)', field: '#ffffff', deep: '#1f4a43', on: '#ffffff', eb: '#9a7643', hl: '#dcc79f', urg: '#b42318', urgInk: '#ffffff' },
+      logo: { mark: 'tooth', upper: 0 },
       video: { hd: V + '7803281/7803281-hd_1920_1078_30fps.mp4', sd: V + '7803281/7803281-sd_960_540_30fps.mp4', poster: 'https://images.pexels.com/videos/7803281/adult-chair-clinic-dental-7803281.jpeg?auto=compress&cs=tinysrgb&w=1600' },
       phone: '025 12 34 56', domain: 'ibtissama-dentaire.dz',
       hours: [['09:00', '18:00'], ['09:00', '18:00'], ['09:00', '18:00'], ['09:00', '18:00'], ['09:00', '13:00'], null, ['09:00', '18:00']],
@@ -94,7 +95,8 @@
     materiel: {
       key: 'materiel', label: { fr: 'Fournisseur de matériel dentaire', ar: 'مورد معدات طب الأسنان', en: 'Dental equipment supplier' },
       brand: { fr: 'Kalimed', ar: 'كاليمد', en: 'Kalimed' }, sub: { fr: 'Équipement dentaire · Alger', ar: 'معدات الأسنان · الجزائر', en: 'Dental equipment · Algiers' }, icon: 'chair',
-      theme: { p: '#c2410c', pd: '#7c2d12', pt: '#fdeee4', bg: '#f1ece6', bg2: '#e6dfd6', card: '#fbf8f4', glow: 'rgba(251,146,60,.3)' },
+      theme: { dark: 1, p: '#c8a96a', pd: '#b2924f', pt: 'rgba(200,169,106,.12)', bg: '#0f0f11', bg2: '#141416', card: '#17171a', ink: '#f3efe7', mut: '#a39e95', bd: 'rgba(255,255,255,.09)', field: '#1d1d21', deep: '#09090a', on: '#17120a', eb: '#c8a96a', hl: '#d9bd84', urg: '#c8a96a', urgInk: '#17120a' },
+      logo: { mark: 'chair', upper: 1 },
       video: { hd: V + '4488800/4488800-hd_1920_1080_25fps.mp4', sd: V + '4488800/4488800-sd_960_540_25fps.mp4', poster: 'https://images.pexels.com/videos/4488800/pexels-photo-4488800.jpeg?auto=compress&cs=tinysrgb&w=1600' },
       phone: '023 45 67 89', domain: 'kalimed.dz',
       hours: [['08:30', '17:30'], ['08:30', '17:30'], ['08:30', '17:30'], ['08:30', '17:30'], ['08:30', '12:30'], null, ['08:30', '17:30']],
@@ -102,7 +104,8 @@
         eb: { fr: 'Fauteuils & équipement dentaire', ar: 'كراسي ومعدات طب الأسنان', en: 'Dental chairs & equipment' },
         h1: { fr: 'Le fauteuil qui <em>fait la différence</em> dans votre cabinet.', ar: 'الكرسي الذي <em>يصنع الفرق</em> في عيادتك.', en: 'The chair that <em>makes the difference</em> in your practice.' },
         lead: { fr: 'Fauteuils, units et accessoires, livrés, installés et suivis par nos techniciens partout en Algérie.', ar: 'كراسي ووحدات وملحقات، تُسلَّم وتُركَّب ويتابعها تقنيونا في كل أنحاء الجزائر.', en: 'Chairs, delivery units and accessories, delivered, installed and serviced by our technicians across Algeria.' },
-        book: { fr: 'Demander une démo', ar: 'اطلب عرضًا', en: 'Request a demo' },
+        book: { fr: 'Essayer un fauteuil', ar: 'جرّب كرسيًا', en: 'Try a chair' },
+        cat: { fr: 'Voir tous nos fauteuils', ar: 'شاهد كل كراسينا', en: 'See all our chairs' },
         second: { fr: 'Configurer mon fauteuil', ar: 'صمّم كرسيك', en: 'Configure my chair' }
       },
       trust: [['600+', { fr: 'cabinets équipés', ar: 'عيادة مجهزة', en: 'practices equipped' }], ['48 h', { fr: 'intervention SAV', ar: 'تدخل خدمة ما بعد البيع', en: 'service call-out' }], ['5 ans', { fr: 'de garantie', ar: 'ضمان', en: 'warranty' }]],
@@ -114,7 +117,7 @@
         tips: { fr: ['Envoyez une photo de la panne sur WhatsApp.', 'Notez le numéro de série (sous l’assise).', 'Coupez l’alimentation en cas de fuite.'], ar: ['أرسل صورة العطل عبر واتساب.', 'دوّن الرقم التسلسلي (تحت المقعد).', 'افصل الكهرباء في حالة تسرب.'], en: ['Send a photo of the fault on WhatsApp.', 'Note the serial number (under the seat).', 'Switch off the power if there is a leak.'] }
       },
       services: {
-        eb: { fr: 'Notre gamme', ar: 'منتجاتنا', en: 'Our range' }, h: { fr: 'Trois fauteuils, pour chaque cabinet.', ar: 'ثلاثة كراسٍ لكل عيادة.', en: 'Three chairs, for every practice.' },
+        eb: { fr: 'Nos fauteuils', ar: 'كراسينا', en: 'Our chairs' }, h: { fr: 'Trois fauteuils, pour chaque cabinet.', ar: 'ثلاثة كراسٍ لكل عيادة.', en: 'Three chairs, for every practice.' },
         lead: { fr: 'Prix affichés, installation et formation comprises.', ar: 'أسعار معلنة، التركيب والتكوين مشمولان.', en: 'Prices shown, installation and training included.' },
         items: [
           { id: 'k1', img: U('1704455306251-b4634215d98f'), min: 1450000, max: 1450000, dur: 0, model: 1, n: { fr: 'Fauteuil K1 Essentiel', ar: 'كرسي K1 الأساسي', en: 'K1 Essential chair' }, d: { fr: 'Fiable et simple, idéal pour démarrer.', ar: 'موثوق وبسيط، مثالي للبداية.', en: 'Reliable and simple, ideal to get started.' } },
@@ -127,16 +130,16 @@
         ]
       },
       colors: [['blanc', '#e5e7eb', U('1704455306925-1401c3012117'), { fr: 'Blanc', ar: 'أبيض', en: 'White' }], ['bleu', '#2563eb', U('1643660526741-094639fbe53a'), { fr: 'Bleu', ar: 'أزرق', en: 'Blue' }], ['orange', '#ea580c', U('1598256989800-fe5f95da9787'), { fr: 'Orange', ar: 'برتقالي', en: 'Orange' }], ['menthe', '#14b8a6', U('1643660527098-559f89e45a92'), { fr: 'Menthe', ar: 'نعناعي', en: 'Mint' }], ['prune', '#7c3aed', U('1643660527190-4f401370f788'), { fr: 'Prune', ar: 'بنفسجي', en: 'Plum' }]],
-      estim: { eb: { fr: 'Configurateur', ar: 'المصمّم', en: 'Configurator' }, h: { fr: 'Composez votre poste de travail.', ar: 'صمّم وحدة عملك.', en: 'Build your workstation.' }, lead: { fr: 'Choisissez le fauteuil, la couleur de sellerie et les équipements : le prix se calcule en direct, puis vous demandez votre démo.', ar: 'اختر الكرسي ولون التنجيد والمعدات: يُحسب السعر مباشرة، ثم اطلب عرضك.', en: 'Choose the chair, upholstery colour and equipment: the price updates live, then request your demo.' } },
+      estim: { book: { fr: 'Essayer cette configuration', ar: 'جرّب هذا الاختيار', en: 'Try this configuration' }, eb: { fr: 'Configurateur', ar: 'المصمّم', en: 'Configurator' }, h: { fr: 'Composez votre poste de travail.', ar: 'صمّم وحدة عملك.', en: 'Build your workstation.' }, lead: { fr: 'Choisissez le fauteuil, la couleur de sellerie et les équipements : le prix se calcule en direct, puis venez l’essayer.', ar: 'اختر الكرسي ولون التنجيد والمعدات: يُحسب السعر مباشرة، ثم تعال لتجربته.', en: 'Choose the chair, upholstery colour and equipment: the price updates live, then come and try it.' } },
       ba: { img: U('1629909613654-28e377c37b09'), before: 'grayscale(.75) sepia(.35) brightness(.78) contrast(.9)', eb: { fr: 'Rénovation de cabinet', ar: 'تجديد العيادة', en: 'Practice renovation' }, h: { fr: 'Votre cabinet, transformé.', ar: 'عيادتك، بحلّة جديدة.', en: 'Your practice, transformed.' }, lead: { fr: 'Faites glisser pour voir la différence d’un équipement neuf.', ar: 'اسحب لترى الفرق مع معدات جديدة.', en: 'Drag to see the difference new equipment makes.' } },
       gallery: { eb: { fr: 'Showroom', ar: 'صالة العرض', en: 'Showroom' }, h: { fr: 'Venez les essayer avant de choisir.', ar: 'تعال وجرّبها قبل الاختيار.', en: 'Come and try them before you choose.' }, items: [[U('1722586663860-a0a372da5c57'), { fr: 'K5 Signature', ar: 'K5 المميز', en: 'K5 Signature' }], [U('1704455306925-1401c3012117'), { fr: 'Espace démonstration', ar: 'فضاء العرض', en: 'Demo area' }], [U('1728342057953-94bfad8f0e7e'), { fr: 'Finitions', ar: 'التشطيبات', en: 'Finishes' }]] },
       reviews: { eb: { fr: 'Ils nous font confiance', ar: 'يثقون بنا', en: 'They trust us' }, h: { fr: 'Des cabinets équipés partout en Algérie.', ar: 'عيادات مجهزة في كل الجزائر.', en: 'Practices equipped across Algeria.' }, items: [
         [{ fr: 'Installation en une journée, formation de l’assistante incluse. Le cabinet a rouvert le lendemain.', ar: 'تركيب في يوم واحد مع تكوين المساعدة. أُعيد فتح العيادة في اليوم التالي.', en: 'Installed in a day, assistant training included. We reopened the next day.' }, 'Dr Benali', { fr: 'Oran', ar: 'وهران', en: 'Oran' }],
         [{ fr: 'Une panne un jeudi, technicien sur place le samedi. Je ne m’attendais pas à ça.', ar: 'عطل يوم الخميس، وتقني في العيادة يوم السبت. لم أتوقع ذلك.', en: 'Fault on a Thursday, technician on site on Saturday. Didn’t expect that.' }, 'Dr Saadi', { fr: 'Sétif', ar: 'سطيف', en: 'Sétif' }],
         [{ fr: 'Le configurateur m’a permis de comparer avant de me déplacer au showroom.', ar: 'سمح لي المصمّم بالمقارنة قبل زيارة صالة العرض.', en: 'The configurator let me compare before visiting the showroom.' }, 'Dr Hamidi', { fr: 'Constantine', ar: 'قسنطينة', en: 'Constantine' }]] },
-      booking: { h: { fr: 'Demander une démonstration', ar: 'طلب عرض توضيحي', en: 'Request a demonstration' }, lead: { fr: 'Au showroom ou dans votre cabinet : un conseiller vous confirme le rendez-vous par SMS.', ar: 'في صالة العرض أو في عيادتك: يؤكد لك مستشار الموعد برسالة.', en: 'At our showroom or your practice: an advisor confirms by text.' }, q1: { fr: 'Quel équipement ?', ar: 'أي معدات؟', en: 'Which equipment?' } },
+      booking: { h: { fr: 'Essayer un fauteuil', ar: 'جرّب كرسيًا', en: 'Try a chair' }, lead: { fr: 'Au showroom, dans votre cabinet ou en visio : un conseiller vous confirme le rendez-vous par SMS.', ar: 'في صالة العرض أو في عيادتك أو عن بعد: يؤكد لك مستشار الموعد برسالة.', en: 'At our showroom, your practice or by video call: an advisor confirms by text.' }, q1: { fr: 'Quel équipement ?', ar: 'أي معدات؟', en: 'Which equipment?' } },
       access: { addr: { fr: 'Zone d’activité, Bab Ezzouar, Alger', ar: 'منطقة النشاطات، باب الزوار، الجزائر', en: 'Business park, Bab Ezzouar, Algiers' }, park: { fr: 'Showroom de 400 m² · parking clients', ar: 'صالة عرض 400 م² · موقف للزبائن', en: '400 m² showroom · customer parking' } },
-      admin: { reqTab: 'Démonstrations', who: 'client', serp: 'Fauteuils dentaires en Algérie — Kalimed | Configurateur & démo', serpD: 'Fauteuils, units et accessoires dentaires. Livraison, installation et SAV 48 h partout en Algérie. Configurez votre poste en ligne.' },
+      admin: { reqTab: 'Demandes d’essai', who: 'client', serp: 'Fauteuils dentaires en Algérie — Kalimed | Configurateur & essai en showroom', serpD: 'Fauteuils, units et accessoires dentaires. Livraison, installation et SAV 48 h partout en Algérie. Configurez votre poste en ligne.' },
       seed: [['Dr Mourad Kaci', '0661 40 22 18', 'k3', 1, '10:30', 'new'], ['Dr Feriel Amrani', '0770 15 63 02', 'k5', 2, '14:00', 'ok'], ['Dr Rania Bouzid', '0550 98 31 77', 'unit', 0, '09:30', 'ok'], ['Dr Yacine Lounis', '0662 77 10 45', 'k1', 3, '11:00', 'ok']]
     }
   };
