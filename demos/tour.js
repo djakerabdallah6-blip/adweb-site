@@ -49,12 +49,18 @@
 
     function reveal(t) {
       if (!t) return;
-      var r = t.getBoundingClientRect(), vh = window.innerHeight;
+      var r = t.getBoundingClientRect(), vh = window.innerHeight, top = 110;
       var bottomLimit = isMobile() ? vh - (card.offsetHeight || 260) - 16 : vh - 24;
-      if (r.top < 60 || r.bottom > bottomLimit) {
-        t.scrollIntoView({ behavior: 'smooth', block: isMobile() ? 'start' : 'center' });
-        if (isMobile()) setTimeout(function () { window.scrollBy({ top: -70, behavior: 'smooth' }); }, 420);
+      var visible = Math.min(r.bottom, bottomLimit) - Math.max(r.top, top);
+      var need = Math.min(r.height, bottomLimit - top) * 0.6;
+      if (visible >= need) return;
+      // élément dans un conteneur qui défile (ex. aperçu téléphone) : on laisse le navigateur faire
+      for (var p = t.parentElement; p && p !== document.body; p = p.parentElement) {
+        var cs = getComputedStyle(p);
+        if (/(auto|scroll)/.test(cs.overflowY) && p.scrollHeight > p.clientHeight + 4) { t.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
       }
+      var room = bottomLimit - top, delta = r.height < room ? r.top - top - (room - r.height) / 2 : r.top - top;
+      window.scrollBy({ top: delta, behavior: 'smooth' });
     }
 
     function render() {
