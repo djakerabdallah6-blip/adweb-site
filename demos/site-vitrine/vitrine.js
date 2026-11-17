@@ -54,6 +54,8 @@
     var m = MARK[sec().logo.mark];
     return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="' + color + '" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="11"/><circle cx="12" cy="12" r="9.6" stroke-opacity=".35"/>' + m.map(function (d) { return '<path d="' + d + '"/>'; }).join('') + '</svg>';
   }
+  // Haute définition pour l'avant / après (affiché en grand)
+  function hq(src, alt) { return '<img src="' + src + '?auto=format&fit=crop&w=2000&h=1000&q=88" srcset="' + src + '?auto=format&fit=crop&w=1000&h=500&q=85 1000w, ' + src + '?auto=format&fit=crop&w=2000&h=1000&q=88 2000w, ' + src + '?auto=format&fit=crop&w=2800&h=1400&q=88 2800w" sizes="(max-width: 1200px) 100vw, 1160px" alt="' + esc(alt || '') + '" decoding="async">'; }
   function img(src, w, h, alt) { return '<img src="' + src + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=72" alt="' + esc(alt || '') + '" loading="lazy" decoding="async">'; }
 
   // ---------- Horaires, statut, créneaux ----------
@@ -173,7 +175,7 @@
       models.map(function (it) { return '<article class="svc">' + (it.img ? '<div class="ph">' + img(it.img, 640, 400, L(it.n)) + '</div>' : '<div class="ic">' + ic(it.ic) + '</div>') + '<h3>' + esc(L(it.n)) + '</h3><p>' + esc(L(it.d)) + '</p><div class="svf"><span class="pr">' + priceTxt(it) + '</span>' + (it.model ? '<button class="lk" type="button" data-cfg="' + it.id + '">' + esc(L({ fr: 'Configurer', ar: 'صمّم', en: 'Configure' })) + ' →</button>' : '') + '</div></article>'; }).join('') + '</div></div></section>' +
       '<section class="blk alt" id="s-est"><div class="in"><p class="eb">' + esc(L(s.estim.eb)) + '</p><h2 class="h">' + esc(L(s.estim.h)) + '</h2><p class="lead">' + esc(L(s.estim.lead)) + '</p><div class="est" id="estBox"></div></div></section>' +
       '<section class="blk" id="s-ba"><div class="in"><p class="eb">' + esc(L(s.ba.eb)) + '</p><h2 class="h">' + esc(L(s.ba.h)) + '</h2><p class="lead">' + esc(L(s.ba.lead)) + '</p>' +
-      '<div class="ba" id="ba">' + img(s.ba.img, 1400, 700, L(s.ba.h)).replace('<img ', '<img class="af" ') + img(s.ba.beforeImg || s.ba.img, 1400, 700, '').replace('<img ', '<img class="bf" style="filter:' + s.ba.before + '" ') +
+      '<div class="ba" id="ba">' + hq(s.ba.img, L(s.ba.h)).replace('<img ', '<img class="af" ') + hq(s.ba.beforeImg || s.ba.img, '').replace('<img ', '<img class="bf" style="filter:' + s.ba.before + '" ') +
       '<div class="hd"><i>⇆</i></div><span class="tg l">' + t('baBefore') + '</span><span class="tg r">' + t('baAfter') + '</span><span class="nt">' + t('baNote') + '</span>' +
       '<input type="range" min="0" max="100" value="' + S.ba + '" id="baRange" aria-label="' + esc(t('baBefore') + ' / ' + t('baAfter')) + '"></div></div></section>' +
       (s.gallery ? '<section class="blk alt" id="s-gal"><div class="in"><p class="eb">' + esc(L(s.gallery.eb)) + '</p><h2 class="h">' + esc(L(s.gallery.h)) + '</h2><div class="gal">' +
