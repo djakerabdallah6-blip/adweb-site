@@ -167,24 +167,24 @@
       '<p class="eb rise" style="animation-delay:.2s">' + esc(L(s.hero.eb)) + '</p><h1 class="rise" style="animation-delay:.3s">' + h1 + '</h1><p class="lead rise" style="animation-delay:.45s">' + esc(L(s.hero.lead)) + '</p>' +
       '<div class="cta rise" style="animation-delay:.6s">' + (s.hero.cat ? '<button class="btn w" type="button" id="heroCat" data-jump="s-svc">' + esc(L(s.hero.cat)) + ' <span aria-hidden="true">→</span></button>' : '<button class="btn w" type="button" id="heroBook" data-book>' + ic('cal', 18) + esc(L(s.hero.book)) + '</button>') + '<button class="btn g" type="button" data-jump="s-est">' + esc(L(s.hero.second)) + '</button></div>' +
       '<div class="trust rise" style="animation-delay:.75s">' + s.trust.map(function (x) { return '<div><b>' + x[0] + '</b>' + esc(L(x[1])) + '</div>'; }).join('') + '</div></div></section>' +
-      '<nav class="snav"><div class="in"><a class="logo" href="#" data-top>' + logoHtml(!!sec().theme.dark) + '</a><div class="links">' + nav.map(function (n, i) { return '<a href="#' + ids[i] + '" data-jump="' + ids[i] + '">' + esc(n) + '</a>'; }).join('') + '</div><button class="btn p" type="button" data-book>' + esc(L(s.hero.book)) + '</button></div></nav>' +
+      '<nav class="snav"><div class="in"><a class="logo" href="#" data-top>' + logoHtml(!!sec().theme.dark) + '</a><div class="links">' + nav.map(function (n, i) { return '<a href="#' + ids[i] + '" data-jump="' + ids[i] + '">' + esc(n) + '</a>'; }).join('') + '</div><button class="btn p" type="button" ' + (s.contactOnly ? 'id="navWa" data-wamsg' : 'data-book') + '>' + (s.contactOnly ? ic('wa', 17) : '') + esc(L(s.hero.book)) + '</button></div></nav>' +
       '<div class="tex">' +
       '<section class="blk" id="s-svc"><div class="in"><p class="eb">' + esc(L(s.services.eb)) + '</p><h2 class="h">' + esc(L(s.services.h)) + '</h2><p class="lead">' + esc(L(s.services.lead)) + '</p><div class="grid3">' +
       models.map(function (it) { return '<article class="svc">' + (it.img ? '<div class="ph">' + img(it.img, 640, 400, L(it.n)) + '</div>' : '<div class="ic">' + ic(it.ic) + '</div>') + '<h3>' + esc(L(it.n)) + '</h3><p>' + esc(L(it.d)) + '</p><div class="svf"><span class="pr">' + priceTxt(it) + '</span>' + (it.model ? '<button class="lk" type="button" data-cfg="' + it.id + '">' + esc(L({ fr: 'Configurer', ar: 'صمّم', en: 'Configure' })) + ' →</button>' : '') + '</div></article>'; }).join('') + '</div></div></section>' +
       '<section class="blk alt" id="s-est"><div class="in"><p class="eb">' + esc(L(s.estim.eb)) + '</p><h2 class="h">' + esc(L(s.estim.h)) + '</h2><p class="lead">' + esc(L(s.estim.lead)) + '</p><div class="est" id="estBox"></div></div></section>' +
       '<section class="blk" id="s-ba"><div class="in"><p class="eb">' + esc(L(s.ba.eb)) + '</p><h2 class="h">' + esc(L(s.ba.h)) + '</h2><p class="lead">' + esc(L(s.ba.lead)) + '</p>' +
-      '<div class="ba" id="ba">' + img(s.ba.img, 1400, 700, L(s.ba.h)).replace('<img ', '<img class="af" ') + img(s.ba.img, 1400, 700, '').replace('<img ', '<img class="bf" style="filter:' + s.ba.before + '" ') +
+      '<div class="ba" id="ba">' + img(s.ba.img, 1400, 700, L(s.ba.h)).replace('<img ', '<img class="af" ') + img(s.ba.beforeImg || s.ba.img, 1400, 700, '').replace('<img ', '<img class="bf" style="filter:' + s.ba.before + '" ') +
       '<div class="hd"><i>⇆</i></div><span class="tg l">' + t('baBefore') + '</span><span class="tg r">' + t('baAfter') + '</span><span class="nt">' + t('baNote') + '</span>' +
       '<input type="range" min="0" max="100" value="' + S.ba + '" id="baRange" aria-label="' + esc(t('baBefore') + ' / ' + t('baAfter')) + '"></div></div></section>' +
-      '<section class="blk alt" id="s-gal"><div class="in"><p class="eb">' + esc(L(s.gallery.eb)) + '</p><h2 class="h">' + esc(L(s.gallery.h)) + '</h2><div class="gal">' +
-      s.gallery.items.map(function (g, i) { return '<figure>' + img(g[0], i ? 600 : 900, 560, L(g[1])) + '<figcaption>' + esc(L(g[1])) + '</figcaption></figure>'; }).join('') + '</div></div></section>' +
+      (s.gallery ? '<section class="blk alt" id="s-gal"><div class="in"><p class="eb">' + esc(L(s.gallery.eb)) + '</p><h2 class="h">' + esc(L(s.gallery.h)) + '</h2><div class="gal">' +
+      s.gallery.items.map(function (g, i) { return '<figure>' + img(g[0], i ? 600 : 900, 560, L(g[1])) + '<figcaption>' + esc(L(g[1])) + '</figcaption></figure>'; }).join('') + '</div></div></section>' : '') +
       '<section class="blk" id="s-rev"><div class="in"><p class="eb">' + esc(L(s.reviews.eb)) + '</p><h2 class="h">' + esc(L(s.reviews.h)) + '</h2><div class="revs">' +
       s.reviews.items.map(function (r) { return '<figure class="rev"><div class="s" aria-label="5/5">★★★★★</div><p>« ' + esc(L(r[0])) + ' »</p><b>' + esc(r[1]) + '</b><small>' + esc(L(r[2])) + '</small></figure>'; }).join('') + '</div></div></section>' +
       '<section class="blk alt" id="s-acc"><div class="in"><p class="eb">' + t('hoursEb') + '</p><h2 class="h">' + t('hoursH') + '</h2><div class="acc"><div class="hrs">' +
       order.map(function (d) { var h = C().hours[d]; return '<div class="' + (d === today ? 'today' : '') + '"><span>' + DAYS[S.lang][d].charAt(0).toUpperCase() + DAYS[S.lang][d].slice(1) + '</span><span>' + (h && !(C().closed && d === today) ? h[0] + ' – ' + h[1] : t('closedD')) + '</span></div>'; }).join('') +
-      '</div><div class="map">' + mapArt() + '<div class="ad"><span><b>' + esc(L(s.access.addr)) + '</b><small>' + esc(L(s.access.park)) + '</small></span><button class="btn p sm" type="button" data-itin>' + ic('map', 16) + t('itin') + '</button></div></div></div></div></section>' +
+      '</div><div class="map">' + mapArt() + '<div class="ad"><span><b>' + esc(L(s.access.addr)) + '</b><small>' + esc(L(s.access.park)) + '</small></span><span style="display:flex;gap:8px;flex-wrap:wrap">' + (s.contactOnly ? '<button class="btn wa sm" type="button" data-wamsg>' + ic('wa', 16) + 'WhatsApp</button>' : '') + '<button class="btn p sm" type="button" data-itin>' + ic('map', 16) + t('itin') + '</button></span></div></div></div></div></section>' +
       '</div><footer class="foot"><div class="in"><span>© ' + esc(L(s.brand)) + ' — ADweb · ' + t('photos') + '</span><span>' + esc(C().phone) + '</span></div></footer>' +
-      '<div class="mbar" id="mbar"><button class="btn o" type="button" data-call>' + ic('phone', 16) + t('call') + '</button><button class="btn wa" type="button" data-wa>' + ic('wa', 16) + t('wa') + '</button><button class="btn p" type="button" data-book>' + ic('cal', 16) + esc(isMat() ? L({ fr: 'Essai', ar: 'تجربة', en: 'Try' }) : L({ fr: 'RDV', ar: 'موعد', en: 'Book' })) + '</button></div>';
+      '<div class="mbar" id="mbar"' + (s.contactOnly ? ' style="grid-template-columns:1fr 1.4fr"' : '') + '><button class="btn o" type="button" data-call>' + ic('phone', 16) + t('call') + '</button><button class="btn wa" type="button" ' + (s.contactOnly ? 'data-wamsg' : 'data-wa') + '>' + ic('wa', 16) + t('wa') + '</button>' + (s.contactOnly ? '' : '<button class="btn p" type="button" data-book>' + ic('cal', 16) + esc(L({ fr: 'RDV', ar: 'موعد', en: 'Book' })) + '</button>') + '</div>';
   }
   function mapArt() {
     var dk = sec().theme.dark, base = dk ? '#1a1a1d' : '#e9e3d8', road = dk ? '#26262b' : '#fbf9f5';
@@ -210,7 +210,7 @@
       (S.sel.length ? '<div class="tot" id="estTot">' + moneyRange(e) + '</div>' + (e.d ? '<div style="color:#94a3b8;font-size:13px;font-weight:600">≈ ' + e.d + ' ' + t('min') + '</div>' : '') +
         '<ul>' + S.sel.map(function (id) { var it = item(id); return '<li><span>' + esc(L(it.n)) + '</span><span>' + (it.min ? num(it.min) : '—') + '</span></li>'; }).join('') + (col ? '<li><span>' + esc(L({ fr: 'Sellerie', ar: 'التنجيد', en: 'Upholstery' })) + '</span><span>' + esc(L(col[3])) + '</span></li>' : '') + '</ul><p>' + t('estNote') + '</p>'
         : '<div class="tot" id="estTot">—</div><p style="margin-top:10px">' + t('estNone') + '</p>') +
-      '<button class="btn p" type="button" id="estBook" data-book' + (S.sel.length ? '' : ' disabled') + '>' + ic('cal', 18) + (s.estim.book ? esc(L(s.estim.book)) : t('estBook')) + '</button></aside>';
+      '<button class="btn ' + (s.contactOnly ? 'wa' : 'p') + '" type="button" id="estBook" ' + (s.contactOnly ? 'data-wamsg data-cfgmsg' : 'data-book') + (S.sel.length ? '' : ' disabled') + '>' + ic(s.contactOnly ? 'wa' : 'cal', 18) + (s.estim.book ? esc(L(s.estim.book)) : t('estBook')) + '</button></aside>';
   }
   function setBa(v) { S.ba = v; var b = $('#ba'); if (b) b.style.setProperty('--pos', v + '%'); }
 
@@ -271,9 +271,55 @@
   function closeUrgent() { $('#umodal').innerHTML = ''; S.umod = false; }
   $('#umodal').addEventListener('click', function (e) {
     if (e.target.id === 'umod' || e.target.closest('[data-ux]')) return closeUrgent();
+    if (e.target.id === 'waSend' || e.target.closest('#waSend')) return;
     if (e.target.closest('[data-call]')) { STATS[S.sector].calls++; toast(L({ fr: 'Sur le vrai site, ce bouton lance l’appel.', ar: 'في الموقع الحقيقي، يطلق هذا الزر المكالمة.', en: 'On the real site, this button starts the call.' })); }
     if (e.target.closest('[data-wa]')) { STATS[S.sector].wa++; toast(L({ fr: 'Sur le vrai site, WhatsApp s’ouvre avec un message prêt.', ar: 'في الموقع الحقيقي، يُفتح واتساب برسالة جاهزة.', en: 'On the real site, WhatsApp opens with a ready message.' })); }
   });
+
+  // ---------- Contact WhatsApp (message déjà rédigé) ----------
+  function waMessage(withCfg) {
+    var s = sec();
+    if (!withCfg) return L({ fr: 'Bonjour ' + s.brand.fr + ', je souhaite des informations sur vos fauteuils dentaires.', ar: 'مرحبًا ' + s.brand.ar + '، أرغب في معلومات عن كراسي طب الأسنان لديكم.', en: 'Hello ' + s.brand.en + ', I would like information about your dental chairs.' });
+    var col = s.colors && s.colors.filter(function (c) { return c[0] === S.color; })[0], e = estimate(S.sel);
+    var items = S.sel.map(function (id) { return L(item(id).n); });
+    if (col) items.splice(1, 0, L({ fr: 'sellerie ', ar: 'تنجيد ', en: 'upholstery: ' }) + L(col[3]).toLowerCase());
+    return L({ fr: 'Bonjour ' + s.brand.fr + ', je souhaite un devis pour : ', ar: 'مرحبًا ' + s.brand.ar + '، أرغب في تقدير لـ: ', en: 'Hello ' + s.brand.en + ', I would like a quote for: ' }) + items.join(', ') + '. ' + L({ fr: 'Estimation du site : ', ar: 'تقدير الموقع: ', en: 'Website estimate: ' }) + moneyRange(e) + '.';
+  }
+  function openWa(withCfg) {
+    var s = sec(), msg = waMessage(withCfg);
+    STATS[S.sector].wa++; if (withCfg) STATS[S.sector].req++;
+    $('#umodal').innerHTML = '<div class="umod" id="umod"><div class="wbox" role="dialog" aria-modal="true" aria-label="WhatsApp" dir="' + (S.lang === 'ar' ? 'rtl' : 'ltr') + '">' +
+      '<div class="wh"><button class="x" type="button" data-ux aria-label="Fermer">✕</button><span class="wav">' + markSvg('#fff', 30) + '</span><span><b>' + esc(L(s.brand)) + '</b><small>WhatsApp · ' + esc(s.wa) + '</small></span></div>' +
+      '<div class="wbody"><div class="wbub">' + esc(msg) + '<small>' + L({ fr: 'Message prêt à envoyer', ar: 'رسالة جاهزة للإرسال', en: 'Message ready to send' }) + '</small></div></div>' +
+      '<div class="wf"><button class="btn wa" type="button" id="waSend">' + ic('wa', 18) + L({ fr: 'Envoyer sur WhatsApp', ar: 'أرسل عبر واتساب', en: 'Send on WhatsApp' }) + '</button><p>' + L({ fr: 'Sur le vrai site, WhatsApp s’ouvre avec ce message : le client n’a qu’à appuyer sur Envoyer.', ar: 'في الموقع الحقيقي، يُفتح واتساب بهذه الرسالة: يكفي أن يضغط الزبون على إرسال.', en: 'On the real site, WhatsApp opens with this message: the customer just taps Send.' }) + '</p></div></div></div>';
+    S.umod = true; S.waOpen = true;
+  }
+  $('#umodal').addEventListener('click', function (e) { if (e.target.id === 'waSend') { closeUrgent(); toast(L({ fr: 'Message envoyé : vous le recevez sur le WhatsApp du showroom.', ar: 'تم الإرسال: تستلمه على واتساب صالة العرض.', en: 'Sent: it arrives on the showroom’s WhatsApp.' })); } });
+
+  // ---------- Export Excel / CSV ----------
+  function downloadCsv(name, rows) {
+    var csv = '﻿' + rows.map(function (r) { return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(';'); }).join('\r\n');
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    toast('Fichier téléchargé : il s’ouvre directement dans Excel');
+  }
+  var STLBL = { new: 'À confirmer', ok: 'Confirmé', conf: 'Présence confirmée', move: 'Autre créneau proposé' };
+  function exportAgenda() {
+    var rows = [['Date', 'Heure', 'Patient', 'Téléphone', 'Soins', 'Statut']], days = openDays();
+    days.forEach(function (d) {
+      var k = dkey(d);
+      daySlots(d).forEach(function (sl) {
+        var tk = taken(k, sl);
+        if (tk === 'blocked') rows.push([dlabel(d, 'fr', true), sl, '—', '', '', 'Créneau bloqué']);
+        else if (tk) rows.push([dlabel(d, 'fr', true), sl, tk.name, tk.tel, tk.items.map(function (i) { return item(i) ? item(i).n.fr : i; }).join(' + '), STLBL[tk.st] || tk.st]);
+      });
+    });
+    downloadCsv('agenda-' + sec().brand.fr.toLowerCase() + '.csv', rows);
+  }
+  function exportReqs() {
+    var rows = [['Reçue', 'Patient', 'Téléphone', 'Soins', 'Date', 'Heure', 'Statut']];
+    REQS[S.sector].forEach(function (r) { rows.push([r.ago, r.name, r.tel, r.items.map(function (i) { return item(i) ? item(i).n.fr : i; }).join(' + '), dlabel(dfrom(r.day), 'fr', true), r.slot, STLBL[r.st] || r.st]); });
+    downloadCsv('rendez-vous-' + sec().brand.fr.toLowerCase() + '.csv', rows);
+  }
 
   // ---------- Interactions du site ----------
   function siteScrollTop() { window.scrollTo(0, 0); var s = $('#site'); if (s) s.scrollTop = 0; }
@@ -284,6 +330,7 @@
     if (b.dataset.jump) { e.preventDefault(); var x = document.getElementById(b.dataset.jump); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     if (b.dataset.lang) { S.lang = b.dataset.lang; renderSite(); return; }
     if (b.hasAttribute('data-urg')) { openUrgent(); return; }
+    if (b.hasAttribute('data-wamsg')) { if (!b.disabled) openWa(b.hasAttribute('data-cfgmsg')); return; }
     if (b.hasAttribute('data-book')) { if (b.disabled) return; var r = b.getBoundingClientRect(); goPage('rdv', r.left + r.width / 2, r.top + r.height / 2); return; }
     if (b.hasAttribute('data-home')) { e.preventDefault(); goPage('home', window.innerWidth / 2, 80); return; }
     if (b.hasAttribute('data-call')) { STATS[S.sector].calls++; toast(L({ fr: 'Sur le vrai site, ce bouton lance l’appel.', ar: 'في الموقع الحقيقي، يطلق هذا الزر المكالمة.', en: 'On the real site, this button starts the call.' })); return; }
@@ -396,8 +443,8 @@
     var s = sec();
     $('#aLogo').innerHTML = markSvg(s.theme.hl, 30); $('#aLogo').style.background = s.theme.deep; $('#aName').textContent = s.brand.fr;
     var n = REQS[S.sector].filter(function (r) { return r.st === 'new'; }).length;
-    var tabs = isPlat() ? [['agenda', 'Agenda'], ['req', s.admin.reqTab], ['stats', 'Statistiques'], ['site', 'Mon site']] : [['req', s.admin.reqTab], ['stats', 'Statistiques'], ['site', 'Mon site']];
-    if (!isPlat() && S.tab === 'agenda') S.tab = 'req';
+    var tabs = isPlat() ? [['agenda', 'Agenda'], ['req', s.admin.reqTab], ['stats', 'Statistiques'], ['site', 'Mon site']] : [['stats', 'Statistiques'], ['site', 'Mon site']];
+    if (!isPlat() && (S.tab === 'agenda' || S.tab === 'req')) S.tab = 'stats';
     $('#tabs').innerHTML = tabs.map(function (x) { return '<button class="tab' + (S.tab === x[0] ? ' on' : '') + '" data-tab="' + x[0] + '" type="button" role="tab" aria-selected="' + (S.tab === x[0]) + '">' + x[1] + (x[0] === 'req' && n ? '<span class="c">' + n + '</span>' : '') + '</button>'; }).join('');
     if (S.tab === 'agenda') renderAgenda(); else if (S.tab === 'req') renderReqs(); else if (S.tab === 'stats') renderStats(); else renderEditor();
   }
@@ -407,7 +454,7 @@
     var days = openDays(), rows = [], lo = 24 * 60, hi = 0;
     days.forEach(function (d) { var h = C().hours[d.getDay()]; lo = Math.min(lo, mins(h[0])); hi = Math.max(hi, mins(h[1])); });
     for (var m = lo; m + 30 <= hi; m += 30) rows.push(hm(m));
-    var html = '<div class="bar2"><h2>Agenda de la semaine</h2><p>Cliquez sur un créneau libre pour le <b>bloquer</b> (congés, formation…) : il disparaît aussitôt de la prise de rendez-vous en ligne.</p></div>' +
+    var html = '<div class="bar2"><h2>Agenda de la semaine</h2><button class="b sec sm" type="button" id="agCsv">⤓ Exporter (Excel / CSV)</button></div><p style="margin:-4px 0 12px;color:var(--muted);font-size:13.5px">Cliquez sur un créneau libre pour le <b>bloquer</b> (congés, formation…) : il disparaît aussitôt de la prise de rendez-vous en ligne.</p>' +
       '<div class="leg"><span><i style="background:' + COLORS[0] + '"></i>Rendez-vous confirmé</span><span><i style="background:#94a3b8;outline:2px dashed #fff;outline-offset:-3px"></i>À confirmer</span><span><i style="background:repeating-linear-gradient(135deg,#fee2e2,#fee2e2 3px,#fecaca 3px,#fecaca 6px)"></i>Créneau bloqué</span></div>' +
       '<div class="ag" id="agenda"><table><thead><tr><th></th>' + days.map(function (d) { return '<th>' + DAYS.fr[d.getDay()].charAt(0).toUpperCase() + DAYS.fr[d.getDay()].slice(1, 3) + '.<small>' + d.getDate() + ' ' + MON.fr[d.getMonth()] + '</small></th>'; }).join('') + '</tr></thead><tbody>' +
       rows.map(function (slot) {
@@ -426,7 +473,7 @@
     var R = REQS[S.sector], c = function (s) { return R.filter(function (r) { return r.st === s; }).length; };
     var who = sec().admin.who;
     $('#pane').innerHTML = '<div class="kpis"><div class="kpi"><small>À confirmer</small><b>' + c('new') + '</b></div><div class="kpi"><small>Confirmées</small><b>' + (c('ok') + c('conf')) + '</b></div>' + (isPlat() ? '<div class="kpi"><small>Présence confirmée par SMS</small><b>' + c('conf') + '</b></div>' : '<div class="kpi"><small>Autre créneau proposé</small><b>' + c('move') + '</b></div>') + '<div class="kpi"><small>Demandes ce mois</small><b>' + STATS[S.sector].req + '</b><em>via le site</em></div></div>' +
-      '<div class="bar2"><h2>' + esc(sec().admin.reqTab) + '</h2><p>Confirmer envoie un SMS au ' + who + ' avec le jour et l’heure.' + (isPlat() ? ' Un rappel part automatiquement la veille : il répond 1 pour confirmer, 2 pour annuler.' : '') + '</p></div>' +
+      '<div class="bar2"><h2>' + esc(sec().admin.reqTab) + '</h2><button class="b sec sm" type="button" id="rqCsv">⤓ Exporter (Excel / CSV)</button></div><div class="bar2"><p>Confirmer envoie un SMS au ' + who + ' avec le jour et l’heure.' + (isPlat() ? ' Un rappel part automatiquement la veille : il répond 1 pour confirmer, 2 pour annuler.' : '') + '</p></div>' +
       R.map(function (r) {
         var pill = r.st === 'new' ? '<span class="pill p-new"><i></i>À confirmer</span>' : r.st === 'ok' ? '<span class="pill p-ok"><i></i>Confirmé</span>' : r.st === 'conf' ? '<span class="pill p-conf"><i></i>Présence confirmée ✓</span>' : '<span class="pill p-move"><i></i>Autre créneau proposé</span>';
         var acts = r.st === 'new' ? '<button class="b pri sm" type="button" data-ok="' + r.id + '">Confirmer</button><button class="b sec sm" type="button" data-move="' + r.id + '">Proposer un autre créneau</button>' : '';
@@ -461,6 +508,8 @@
       renderAgenda();
     }
     else if (b.id === 'goSite') { S.page = 'home'; go('site'); }
+    else if (b.id === 'agCsv') exportAgenda();
+    else if (b.id === 'rqCsv') exportReqs();
   });
 
   function gauge(v, label) {
@@ -469,7 +518,7 @@
   }
   function renderStats() {
     var st = STATS[S.sector], weeks = [212, 238, 251, 263, 241, 288, 302, 319, 297, 334, 352, 371], mx = Math.max.apply(null, weeks), a = sec().admin;
-    $('#pane').innerHTML = '<div class="kpis" id="skpis"><div class="kpi"><small>Visiteurs (30 j)</small><b>' + num(st.visits) + '</b><em>+22 %</em></div><div class="kpi"><small>Appels depuis le site</small><b>' + st.calls + '</b><em>+9</em></div><div class="kpi"><small>Clics WhatsApp</small><b>' + st.wa + '</b><em>+17</em></div><div class="kpi"><small>' + (isMat() ? 'Demandes d’essai' : 'Demandes de RDV') + '</small><b>' + st.req + '</b><em>' + num(st.est) + ' simulations de devis</em></div></div>' +
+    $('#pane').innerHTML = '<div class="kpis" id="skpis"><div class="kpi"><small>Visiteurs (30 j)</small><b>' + num(st.visits) + '</b><em>+22 %</em></div><div class="kpi"><small>Appels depuis le site</small><b>' + st.calls + '</b><em>+9</em></div><div class="kpi"><small>Clics WhatsApp</small><b>' + st.wa + '</b><em>+17</em></div><div class="kpi"><small>' + (isMat() ? 'Devis demandés sur WhatsApp' : 'Demandes de RDV') + '</small><b>' + st.req + '</b><em>' + num(st.est) + ' simulations de devis</em></div></div>' +
       '<div class="ed"><div class="box" id="perf"><h3>Performance du site</h3><p class="d">Exemple de rapport Lighthouse, l’outil de mesure de Google : vitesse, lisibilité, bonnes pratiques et référencement.</p><div class="gauges">' + gauge(97, 'Vitesse') + gauge(100, 'Accessibilité') + gauge(100, 'Bonnes pratiques') + gauge(100, 'Référencement') + '</div></div>' +
       '<div class="box"><h3>D’où viennent vos ' + (isMat() ? 'clients' : 'patients') + '</h3><p class="d">Ce qui a amené les visiteurs sur le site.</p><div class="src">' + [['Recherche Google', 52], ['Facebook & Instagram', 24], ['Google Maps', 16], ['Lien direct / bouche-à-oreille', 8]].map(function (x) { return '<div><span>' + x[0] + '</span><span>' + x[1] + ' %</span><i><u style="width:' + x[1] / 52 * 100 + '%"></u></i></div>'; }).join('') + '</div></div></div>' +
       '<div class="ed" style="margin-top:16px"><div class="box"><h3>Visiteurs par semaine</h3><p class="d">Sur les 12 dernières semaines.</p><div class="chart">' + weeks.map(function (w, i) { return '<div style="height:' + Math.round(w / mx * 100) + '%" title="' + w + '"><small>S' + (i + 1) + '</small></div>'; }).join('') + '</div><div style="height:22px"></div></div>' +
@@ -556,7 +605,7 @@
         buttons: '<a class="b pri" href="../../#contact">Je veux ma plateforme</a>' }
     ]);
   } else {
-    welcome = { title: 'Bienvenue chez Kalimed', text: 'Un vrai site vitrine, pas une maquette. En 3 minutes : vidéo plein écran, catalogue, SAV express, configurateur de fauteuil avec prix en direct, et demande d’essai.' };
+    welcome = { title: 'Bienvenue chez Kalimed', text: 'Un vrai site vitrine, pas une maquette. En 3 minutes : vidéo plein écran, catalogue, SAV express, configurateur de fauteuil avec prix en direct, et devis envoyé sur WhatsApp.' };
     steps = [
       first('Plein écran, une vraie vidéo du produit, et le menu intégré dedans. Deux boutons clairs : voir tous les fauteuils, ou configurer le sien.'),
       { title: 'Le SAV, en un geste', text: 'Un fauteuil en panne, c’est un cabinet à l’arrêt. Le bouton rouge propose d’appeler un technicien ou d’envoyer une photo sur WhatsApp, avec les bons réflexes.', target: '#urgBtn', hint: 'Appuyez sur « SAV express »', enter: function () { ensureHome(); }, done: function () { return S.umod; }, act: function () { openUrgent(); } },
@@ -565,12 +614,10 @@
       common.lang,
       { title: 'Le configurateur', text: 'On repasse en français. Le dentiste choisit son fauteuil, la couleur de sellerie et ses équipements : le prix se calcule en direct.', target: '#s-est', hint: 'Choisissez un autre fauteuil ou une couleur', enter: function () { if (S.lang !== 'fr') { S.lang = 'fr'; renderSite(); } setTimeout(function () { var x = $('#s-est'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80); }, done: function () { return S.sel.indexOf('k3') < 0 || S.color !== 'bleu'; }, act: function () { click('[data-sel="k5"]'); setTimeout(function () { click('[data-color="menthe"]'); }, 400); } },
       common.ba('Le visiteur voit la différence d’un équipement neuf. Ici c’est une simulation clairement signalée ; chez vous, ce seront vos vraies installations.'),
-      { title: 'On vient l’essayer', text: 'La configuration part directement dans la demande d’essai, avec une transition aux couleurs de la marque.', target: '#estBook', hint: 'Appuyez sur « Essayer cette configuration »', enter: function () { var x = $('#estBook'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, done: function () { return S.page === 'rdv' && !busy; }, act: function () { click('#estBook'); } },
-      common.slot('L’équipement choisi est déjà coché. Le client choisit où (showroom, son cabinet ou en visio), puis le jour et l’heure.'),
-      common.fill, common.send,
-      common.notif('La demande arrive aussitôt sur le téléphone du commercial.'),
-      common.confirm('Toutes les demandes au même endroit. « Confirmer » envoie un SMS au client avec le jour et l’heure.'),
-      common.stats,
+      { title: 'Le devis, directement sur WhatsApp', text: 'Un bouton envoie la configuration sur le WhatsApp de Kalimed, avec un message déjà rédigé : fauteuil, couleur, équipements et estimation.', target: '#estBook', hint: 'Appuyez sur « Recevoir ce devis sur WhatsApp »', enter: function () { closeUrgent(); var x = $('#estBook'); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, done: function () { return !!S.waOpen; }, act: function () { click('#estBook'); } },
+      { title: 'Le client n’a rien à écrire', text: 'WhatsApp s’ouvre avec ce message : il appuie sur Envoyer, et vous recevez une demande précise, prête à être rappelée. Le même bouton « Nous contacter » est en haut du site, dans l’accès au showroom, et collé en bas de l’écran sur téléphone.', target: '.wbox' },
+      { title: 'Votre espace gérant', text: 'Voyons ce que le site vous rapporte.', target: '#sw', hint: 'Appuyez sur « Espace gérant »', enter: function () { closeUrgent(); }, done: function () { return S.view === 'admin'; }, act: function () { ensureAdmin('stats'); } },
+      { title: 'Ce que le site vous rapporte', text: 'Visites, appels, clics WhatsApp, devis demandés… et la performance du site. Vous savez enfin si votre site vous fait vendre. Le devis que vous venez d’envoyer est déjà compté.', target: '#skpis', enter: function () { ensureAdmin('stats'); } },
       { title: 'Et pour aller plus loin', text: 'Ce site vitrine peut évoluer avec vous :', target: null,
         list: ['Catalogue complet avec fiches techniques à télécharger.', 'Espace revendeurs avec tarifs dédiés.', 'Suivi des interventions SAV et des contrats d’entretien.', 'Fiche Google Maps et référencement local du showroom.', 'Hébergement, sauvegardes et mises à jour pris en charge.'],
         buttons: '<a class="b pri" href="../../#contact">Je veux mon site</a>' }
