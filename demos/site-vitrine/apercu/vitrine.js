@@ -491,6 +491,8 @@
   });
 
   // ---------- Démarrage ----------
+  // Lien direct vers un métier : ?metier=materiel
+  if (new URLSearchParams(location.search).get('metier') === 'materiel') { S.sector = 'materiel'; $('#sectorSel').value = 'materiel'; }
   resetSel();
   if (location.hash === '#rendez-vous') S.page = 'rdv';
   renderSite();
