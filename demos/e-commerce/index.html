@@ -49,7 +49,10 @@ body{background:#faf7f2}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}}
 .pc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(60,40,10,.45)}
 .pc .im{position:relative;aspect-ratio:1/1;background:#f4eee5}
-.pc .im svg{width:100%;height:100%;display:block}
+.pc .im img,.pc .im .ph{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s}
+.pc:hover .im img{transform:scale(1.04)}
+.pc .im{overflow:hidden}
+.ph{display:flex!important;align-items:center;justify-content:center;background:linear-gradient(135deg,#e9dcc6,#c9a97a);color:#fff;font-family:Fraunces,serif;font-size:48px}
 .pc .bd{position:absolute;top:12px;left:12px;background:#1c1712;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:7px}
 .pc .bd.nw{background:#b45309}
 .pc .tx{padding:14px 16px 18px}
@@ -67,11 +70,11 @@ body{background:#faf7f2}
 @media (max-width:760px){.pd{grid-template-columns:1fr}}
 .gal{padding:18px;background:#f4eee5}
 .gal .main{aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#efe7db}
-.gal .main svg{width:100%;height:100%;display:block}
+.gal .main img,.gal .main .ph{width:100%;height:100%;display:block;object-fit:cover}
 .thumbs{display:flex;gap:10px;margin-top:12px}
 .thumbs button{width:74px;height:74px;border-radius:12px;overflow:hidden;border:2px solid transparent;padding:0;background:#efe7db}
 .thumbs button.on{border-color:#1c1712}
-.thumbs svg{width:100%;height:100%;display:block}
+.thumbs img,.thumbs .ph{width:100%;height:100%;display:block;object-fit:cover}.thumbs .ph{font-size:20px}
 .inf{padding:30px 28px}
 .inf .mt{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9a8b78}
 .inf h2{margin:6px 0 4px;font-size:34px;font-weight:600;line-height:1.05}
@@ -104,7 +107,7 @@ body{background:#faf7f2}
 .drw .its{flex:1;overflow:auto;padding:8px 22px}
 .it{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #f1ebe2}
 .it .th{width:72px;height:72px;flex:none;border-radius:12px;overflow:hidden;background:#f4eee5}
-.it .th svg{width:100%;height:100%}
+.it .th img,.it .th .ph{width:100%;height:100%;object-fit:cover;display:block}.it .th .ph{font-size:24px}
 .it h4{margin:0 0 3px;font-size:16px;font-weight:600}
 .it .s{font-size:13px;color:#7a6c5c}
 .it .rm{background:none;border:0;color:#b45309;font-size:12.5px;font-weight:700;padding:0;margin-top:6px}
@@ -144,7 +147,7 @@ body{background:#faf7f2}
 .ah{background:#fff;border-bottom:1px solid var(--line)}
 .ah .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:16px}
 .ah .t{display:flex;align-items:center;gap:12px}
-.ah .t .lo{width:40px;height:40px;border-radius:12px;background:#1c1712;color:#f6c56b;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:20px}
+.ah .t .lo{width:40px;height:40px;border-radius:12px;background:#1c1712;color:#f6c56b;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px}
 .ah .t b{display:block;font-size:16px}.ah .t small{color:var(--soft);font-size:12.5px;font-weight:600}
 .tabs{display:flex;gap:4px;margin-top:14px;overflow-x:auto}
 .tab{border:0;background:none;padding:12px 16px;font-weight:700;font-size:14px;color:var(--muted);border-bottom:2.5px solid transparent;white-space:nowrap}
@@ -176,7 +179,10 @@ body{background:#faf7f2}
 .s-nouvelle{background:#eaf0fe;color:#1d4ed8}.s-appelee{background:var(--warnt);color:#b45309}.s-confirmee{background:#f3e8ff;color:#7e22ce}.s-livree{background:var(--okt);color:#15803d}.s-annulee{background:#f1f5f9;color:#64748b}
 .prow{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center}
 .prow .th{width:64px;height:64px;border-radius:12px;overflow:hidden;background:#f4eee5}
-.prow .th svg{width:100%;height:100%}
+.prow .th img,.prow .th .ph{width:100%;height:100%;object-fit:cover;display:block}.prow .th .ph{font-size:24px}
+.upl{display:flex;gap:14px;align-items:center;margin-bottom:16px}.upl small{display:block;color:var(--soft);font-size:12px;margin-top:6px}
+.upv{width:84px;height:84px;flex:none;border-radius:14px;overflow:hidden;background:#f4eee5}.upv img,.upv .ph{width:100%;height:100%;object-fit:cover;display:block}.upv .ph{font-size:28px}
+.credit{text-align:center;font-size:12px;color:#9a8b78;padding:0 20px 40px}.credit a{color:inherit}
 .prow b{font-size:15px}.prow small{display:block;color:var(--soft);font-size:12.5px;font-weight:600;margin:2px 0 6px}
 .vars{display:flex;gap:6px;flex-wrap:wrap}
 .vars span{font-size:12px;font-weight:700;background:#f1f5fb;border-radius:8px;padding:4px 8px;color:var(--muted)}
@@ -214,22 +220,23 @@ body{background:#faf7f2}
 <main id="shop">
   <header class="sh">
     <div class="wrap">
-      <a class="brand serif" href="#" onclick="return false">Yasmine <small>Parfums</small></a>
+      <a class="brand serif" href="#" onclick="return false">Dar Nour <small>Terroir</small></a>
       <nav class="snav" aria-label="Boutique"><span>Boutique</span><span>Nouveautés</span><span>Coffrets</span><span>Contact</span></nav>
       <button class="cartb" id="cartBtn" type="button" aria-label="Ouvrir le panier">Panier <span class="n" id="cc">0</span></button>
     </div>
   </header>
-  <div class="ribbon">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Échange sous 7 jours</div>
+  <div class="ribbon">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Direct producteurs</div>
   <div class="wrap">
     <div class="ch">
       <div>
-        <h1 class="serif">Parfums &amp; muscs</h1>
+        <h1 class="serif">Le meilleur du terroir</h1>
         <p id="count"></p>
       </div>
     </div>
     <div class="flt" id="filters"></div>
     <div class="grid" id="grid"></div>
   </div>
+  <p class="credit">Boutique fictive de démonstration · Photos : <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
 </main>
 
 <!-- Fiche produit -->
@@ -250,7 +257,7 @@ body{background:#faf7f2}
 <main id="admin" hidden>
   <div class="ah">
     <div class="wrap">
-      <div class="t"><span class="lo">Y</span><div><b>Yasmine Parfums</b><small>Administration</small></div></div>
+      <div class="t"><span class="lo">DN</span><div><b>Dar Nour</b><small>Administration</small></div></div>
       <button class="b sec sm" id="backShop" type="button">← Retour à la boutique</button>
     </div>
     <div class="wrap">

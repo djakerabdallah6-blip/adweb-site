@@ -33,7 +33,7 @@
       book: 'Prendre rendez-vous', call: 'Appeler', wa: 'WhatsApp', open: 'Ouvert maintenant · ferme à {t}', shut: 'Fermé · ouvre {w} à {t}', today: 'aujourd’hui', tomorrow: 'demain', excep: 'Fermé exceptionnellement',
       t1: 'note des patients', t2: 'ans d’expérience', t3: 'rendez-vous par an', revTag: '230 avis vérifiés', revSub: 'Patients du cabinet',
       soinsEb: 'Nos soins', soinsH: 'Tout ce qu’il faut pour un sourire en bonne santé.', soinsL: 'Des tarifs affichés, pour venir sans mauvaise surprise.', from: 'dès {p} DA', quote: 'sur devis',
-      cabEb: 'Le cabinet', cabH: 'Un lieu pensé pour que vous soyez à l’aise.', r1: 'Salle de soins', r2: 'Accueil', r3: 'Radio numérique',
+      cabEb: 'Le cabinet', cabH: 'Un lieu pensé pour que vous soyez à l’aise.', r1: 'Salle de soins', r2: 'Accueil', r3: 'Équipement moderne',
       avisEb: 'Avis patients', avisH: 'Ils nous ont confié leur sourire.',
       revs: [['J’avais une vraie peur du dentiste. Tout m’a été expliqué avant chaque geste, je n’ai rien senti.', 'Nadia B.', 'Soins des caries'], ['Rendez-vous pris le soir sur le site, confirmé le lendemain matin par SMS. Simple.', 'Riad M.', 'Détartrage'], ['Résultat superbe pour mon implant, et un suivi très sérieux.', 'Samia K.', 'Implant']],
       rdvEb: 'Rendez-vous', rdvH: 'Réservez en moins d’une minute.', rdvL: 'Choisissez le soin et le créneau : le cabinet vous confirme par SMS.',
@@ -41,13 +41,13 @@
       q1: 'Quel soin ?', q2: 'Quel jour ?', q3: 'Quelle heure ?', name: 'Nom et prénom', tel: 'Téléphone', test: '⚡ Remplir avec les infos de test', send: 'Envoyer la demande',
       err: 'Choisissez un soin, un jour, une heure, et indiquez votre nom et un mobile valide.', sentH: 'Demande envoyée !', sentP: 'Le cabinet vous confirme par SMS au {tel}.<br>Demande : {svc}, {when}.', again: 'Faire une autre demande',
       accEb: 'Horaires & accès', accH: 'Facile à trouver, facile à joindre.', closedD: 'Fermé', addr: '12 rue des Orangers, Blida', park: 'Parking à 50 m · accès PMR', itin: 'Itinéraire',
-      foot: '© Cabinet Dr Selma Haddad — site de démonstration ADweb', mb1: 'Appeler', mb2: 'WhatsApp', mb3: 'Rendez-vous', at: 'à' },
+      foot: '© Cabinet Dr Selma Haddad — site de démonstration ADweb · Photos : Unsplash', mb1: 'Appeler', mb2: 'WhatsApp', mb3: 'Rendez-vous', at: 'à' },
     ar: { brand: 'د. سلمى حداد', sub: 'جراحة الأسنان · البليدة', soins: 'العلاجات', cabinet: 'العيادة', avis: 'الآراء', acces: 'العنوان', rdvBtn: 'احجز موعدًا',
       lead: 'فحوصات وعلاجات وتجميل وزراعة. عيادة حديثة، شرح واضح، ومواعيد تُحترم.',
       book: 'احجز موعدًا', call: 'اتصل بنا', wa: 'واتساب', open: 'مفتوح الآن · يغلق على {t}', shut: 'مغلق · يفتح {w} على {t}', today: 'اليوم', tomorrow: 'غدًا', excep: 'مغلق استثنائيًا',
       t1: 'تقييم المرضى', t2: 'سنة خبرة', t3: 'موعد في السنة', revTag: '230 رأيًا موثقًا', revSub: 'مرضى العيادة',
       soinsEb: 'علاجاتنا', soinsH: 'كل ما يلزم لابتسامة صحية.', soinsL: 'أسعار معلنة، حتى تأتي دون مفاجآت.', from: 'ابتداءً من {p} دج', quote: 'حسب التقدير',
-      cabEb: 'العيادة', cabH: 'مكان صُمّم لراحتكم.', r1: 'غرفة العلاج', r2: 'الاستقبال', r3: 'الأشعة الرقمية',
+      cabEb: 'العيادة', cabH: 'مكان صُمّم لراحتكم.', r1: 'غرفة العلاج', r2: 'الاستقبال', r3: 'معدات حديثة',
       avisEb: 'آراء المرضى', avisH: 'وثقوا بنا في ابتسامتهم.',
       revs: [['كنت أخاف كثيرًا من طبيب الأسنان. شُرح لي كل شيء قبل كل خطوة ولم أشعر بأي ألم.', 'نادية ب.', 'علاج التسوس'], ['حجزت الموعد ليلًا من الموقع، وتم التأكيد صباحًا برسالة. بسيط جدًا.', 'رياض م.', 'إزالة الجير'], ['نتيجة رائعة لزراعة السن، ومتابعة جدية للغاية.', 'سامية ك.', 'زراعة']],
       rdvEb: 'المواعيد', rdvH: 'احجز في أقل من دقيقة.', rdvL: 'اختر العلاج والموعد، وتؤكد لك العيادة برسالة قصيرة.',
@@ -55,7 +55,7 @@
       q1: 'أي علاج؟', q2: 'أي يوم؟', q3: 'أي ساعة؟', name: 'الاسم واللقب', tel: 'الهاتف', test: '⚡ املأ ببيانات تجريبية', send: 'أرسل الطلب',
       err: 'اختر العلاج واليوم والساعة، وأدخل اسمك ورقم هاتف صحيح.', sentH: 'تم إرسال الطلب!', sentP: 'ستؤكد لك العيادة برسالة على {tel}.<br>الطلب: {svc}، {when}.', again: 'طلب جديد',
       accEb: 'الأوقات والعنوان', accH: 'سهل الوصول، سهل الاتصال.', closedD: 'مغلق', addr: '12 شارع البرتقال، البليدة', park: 'موقف سيارات على بعد 50 م', itin: 'الاتجاهات',
-      foot: '© عيادة د. سلمى حداد — موقع تجريبي من ADweb', mb1: 'اتصال', mb2: 'واتساب', mb3: 'موعد', at: 'على' }
+      foot: '© عيادة د. سلمى حداد — موقع تجريبي من ADweb · الصور: Unsplash', mb1: 'اتصال', mb2: 'واتساب', mb3: 'موعد', at: 'على' }
   };
   var TITLE_AR = 'علاج أسنان <em>بلطف</em> في قلب البليدة.';
 
@@ -117,19 +117,11 @@
   function ic(k, s) { return '<svg width="' + (s || 22) + '" height="' + (s || 22) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg>'; }
 
   // ---------- Site ----------
-  function heroArt() {
-    return '<svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><radialGradient id="ha" cx=".7" cy=".2" r=".8"><stop offset="0" stop-color="#5eead4" stop-opacity=".7"/><stop offset="1" stop-color="#0f766e" stop-opacity="0"/></radialGradient></defs>' +
-      '<rect width="400" height="420" fill="url(#ha)"/><circle cx="330" cy="60" r="90" fill="#fff" opacity=".07"/><circle cx="40" cy="380" r="120" fill="#fff" opacity=".05"/>' +
-      '<g transform="translate(110 70) scale(7.5)" fill="#fff" fill-opacity=".95" stroke="none"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 5 2.2 8.5.4 2 1 5 2.6 5 1.8 0 1.6-5 4.2-5s2.4 5 4.2 5c1.6 0 2.2-3 2.6-5 .7-3.5 2.2-5.5 2.2-8.5C21 5 19.5 3 17 3c-2 0-3 1.2-5 1.2S9 3 7 3z"/></g>' +
-      '<g fill="#fff"><path d="M300 120l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".9"/><path d="M90 150l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" opacity=".7"/></g></svg>';
-  }
-  function room(i) {
-    var g = [['#99f6e4', '#0f766e'], ['#fde68a', '#d97706'], ['#bfdbfe', '#1d4ed8']][i];
-    var shapes = ['<rect x="40" y="120" width="180" height="40" rx="20" fill="#fff" opacity=".85"/><rect x="190" y="60" width="16" height="70" rx="8" fill="#fff" opacity=".7"/><circle cx="250" cy="70" r="26" fill="#fff" opacity=".5"/><rect x="60" y="160" width="20" height="50" fill="#fff" opacity=".6"/>',
-      '<rect x="40" y="110" width="200" height="80" rx="14" fill="#fff" opacity=".8"/><circle cx="90" cy="80" r="22" fill="#fff" opacity=".55"/><rect x="150" y="60" width="70" height="40" rx="8" fill="#fff" opacity=".5"/>',
-      '<rect x="70" y="50" width="160" height="110" rx="12" fill="#fff" opacity=".8"/><path d="M110 130c10-40 30-60 40-60s30 20 40 60" stroke="' + g[1] + '" stroke-width="6" fill="none" opacity=".5"/><rect x="135" y="160" width="30" height="40" fill="#fff" opacity=".6"/>'][i];
-    return '<svg viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="rm' + i + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + g[0] + '"/><stop offset="1" stop-color="' + g[1] + '"/></linearGradient></defs><rect width="300" height="220" fill="url(#rm' + i + ')"/>' + shapes + '</svg>';
-  }
+  // Photos : Unsplash (licence libre, usage commercial autorisé), servies par leur CDN.
+  function ph(id, w, h, alt) { return '<img src="https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=72" alt="' + esc(alt) + '" loading="lazy" decoding="async">'; }
+  function heroArt() { return ph('1777331903190-341a3dd0441b', 900, 960, S.lang === 'ar' ? 'طبيبة الأسنان تتحدث مع مريضة' : 'La dentiste échange avec une patiente au cabinet'); }
+  var ROOMS = ['1606811841689-23dfddce3e95', '1762625570087-6d98fca29531', '1629909613654-28e377c37b09'];
+  function room(i) { return ph(ROOMS[i], i === 0 ? 900 : 600, 520, [t('r1'), t('r2'), t('r3')][i]); }
   function mapArt() {
     return '<svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="340" fill="#e7efe6"/>' +
       '<g stroke="#fff" stroke-width="14" fill="none"><path d="M-10 90h620M-10 230h620M130-10v360M420-10v360M0 340L600 0"/></g><g stroke="#fff" stroke-width="6" fill="none" opacity=".8"><path d="M-10 160h620M270-10v360M520-10v360"/></g>' +
