@@ -14,8 +14,8 @@
   function playVid() { if (!reduce && page === 'landing' && !shop.hidden) vid.play().catch(function () {}); }
   if (reduce) vid.removeAttribute('autoplay'); else playVid();
 
-  // Transition : ?transition=dune pour comparer, tempête de sable par défaut
-  var kind = new URLSearchParams(location.search).get('transition') === 'dune' ? 'dune' : 'sable';
+  // Transition retenue : la dune, avec le logo Dar Nour
+  var kind = 'dune';
 
   // ---------- Pages ----------
   function setPage(p, push) {

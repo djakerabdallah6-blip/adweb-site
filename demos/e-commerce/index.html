@@ -28,39 +28,46 @@ body{background:#faf7f2}
 @media (max-width:760px){.snav{display:none}}
 .ribbon{background:#1c1712;color:#efe6d8;font-size:12.5px;font-weight:600;text-align:center;padding:9px 12px;letter-spacing:.02em}
 .ribbon b{color:#f6c56b}
-/* Bandeau Sahara */
-.hero{position:relative;height:min(78vh,720px);min-height:480px;overflow:hidden;color:#fff;background:#c98a4a;touch-action:pan-y}
+/* ---------- Page d'accueil vidéo ---------- */
+.landing{position:relative;height:calc(100vh - 44px);height:calc(100svh - 44px);min-height:560px;overflow:hidden;color:#fff;background:#3a2410}
 .hbg{position:absolute;inset:0}
-.hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 28s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
-.hgrain{position:absolute;inset:0;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay;pointer-events:none}
-.hc{position:absolute;inset:0;display:block}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(28,18,8,.62) 0%,rgba(28,18,8,.32) 42%,rgba(28,18,8,0) 70%),linear-gradient(0deg,rgba(28,18,8,.35),transparent 35%)}
-.hero.is-sand::after{background:linear-gradient(90deg,rgba(10,30,60,.55) 0%,rgba(10,30,60,.2) 45%,rgba(10,30,60,0) 68%)}
-@media (max-width:640px){.hero::after,.hero.is-sand::after{background:linear-gradient(180deg,rgba(10,25,50,.15) 0%,rgba(10,25,50,.55) 35%,rgba(30,15,5,.55) 100%)}}
-.hin{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto;padding:0 20px;pointer-events:none}
-.hin>*{pointer-events:auto;max-width:620px}
+.hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 30s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.03)}to{transform:scale(1.13) translate(-1.5%,-1%)}}
+.hgrain{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay;pointer-events:none}
+.landing::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,12,4,.55) 0%,rgba(20,12,4,0) 22%),linear-gradient(90deg,rgba(28,18,8,.62) 0%,rgba(28,18,8,.3) 42%,rgba(28,18,8,0) 70%),linear-gradient(0deg,rgba(20,12,4,.55),transparent 30%)}
+.lh{position:absolute;z-index:3;top:0;left:0;right:0}
+.lh .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.lh .brand{color:#fff}.lh .brand small{color:#ffd58f}
+.lh .snav{color:rgba(255,255,255,.82)}.lh .snav span:first-child{color:#fff}
+.lh .cartb{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+.lh .cartb .n{background:#fff3df}
+.hin{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto;padding:60px 20px 70px;pointer-events:none}
+.hin>*{pointer-events:auto;max-width:640px}
 .heb{font-size:12.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#ffe2b0;margin:0 0 14px;opacity:0;animation:hu .9s .2s forwards}
-.hero h2{margin:0 0 16px;font-size:clamp(40px,6.4vw,82px);line-height:.98;font-weight:600;text-shadow:0 4px 30px rgba(40,20,0,.35);opacity:0;animation:hu .9s .35s forwards}
-.hero h2 em{font-style:italic;color:#ffd58f}
-.hero p.hl{margin:0 0 28px;font-size:17px;line-height:1.6;color:#fbead2;max-width:480px;opacity:0;animation:hu .9s .5s forwards}
+.landing h1{margin:0 0 18px;font-size:clamp(44px,7vw,92px);line-height:.96;font-weight:600;text-shadow:0 4px 30px rgba(40,20,0,.35);opacity:0;animation:hu .9s .35s forwards}
+.landing h1 em{font-style:italic;color:#ffd58f}
+.landing p.hl{margin:0 0 30px;font-size:18px;line-height:1.6;color:#fbead2;max-width:500px;opacity:0;animation:hu .9s .5s forwards}
 .hcta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:hu .9s .65s forwards}
-.hcta .b{min-height:52px;padding:14px 24px;font-size:15px}
+.hcta .b{min-height:54px;padding:14px 26px;font-size:15px}
 .b.sand{background:#fff3df;color:#2b1a0a}.b.sand:hover{background:#fff}
 .b.glass{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
-.htrust{display:flex;gap:22px;margin-top:34px;font-size:13px;font-weight:600;color:#fbead2;flex-wrap:wrap;opacity:0;animation:hu .9s .8s forwards}
-.htrust b{display:block;font-size:20px;color:#fff;font-family:Fraunces,serif;font-weight:600}
+.htrust{display:flex;gap:26px;margin-top:38px;font-size:13px;font-weight:600;color:#fbead2;flex-wrap:wrap;opacity:0;animation:hu .9s .8s forwards}
+.htrust b{display:block;font-size:22px;color:#fff;font-family:Fraunces,serif;font-weight:600}
 @keyframes hu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.hsw{position:absolute;z-index:3;right:16px;bottom:16px;display:flex;align-items:center;gap:4px;background:rgba(20,12,4,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px;font-size:12px;font-weight:700}
-.hsw span{padding:0 8px 0 10px;color:#f3dcbb}
-.hsw a{text-decoration:none;color:#fff;padding:7px 12px;border-radius:999px}
-.hsw a.on{background:#fff3df;color:#2b1a0a}
-.hhint{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);font-size:12px;font-weight:700;letter-spacing:.08em;color:#fff3df;opacity:.85;pointer-events:none;display:none}
-.is-sand .hhint{display:block}
-@media (max-width:640px){.hero{height:auto;min-height:580px}.hin{padding:84px 20px 80px}.hsw{left:auto;right:12px;top:12px;bottom:auto}.hhint{display:none!important}.htrust{gap:16px}}
+.lrib{position:absolute;z-index:2;left:0;right:0;bottom:0;text-align:center;font-size:12.5px;font-weight:600;color:#f6e3c6;padding:12px 16px;border-top:1px solid rgba(255,255,255,.14);background:rgba(20,12,4,.25);backdrop-filter:blur(6px)}
+.lrib b{color:#ffd58f}
+.tsw{position:absolute;z-index:3;right:16px;bottom:56px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;background:rgba(20,12,4,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px;font-size:12px;font-weight:700}
+.tsw span{padding:0 8px 0 10px;color:#f3dcbb}
+.tsw button{border:0;background:none;color:#fff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.tsw button.on{background:#fff3df;color:#2b1a0a}
+@media (max-width:640px){.lh .wrap{height:64px}.hin{justify-content:flex-end;padding:90px 20px 150px}.landing::after{background:linear-gradient(180deg,rgba(20,12,4,.5) 0%,rgba(20,12,4,.1) 30%,rgba(20,12,4,.7) 100%)}.tsw{left:12px;right:12px;bottom:52px;justify-content:center;border-radius:16px}.htrust{gap:18px;margin-top:28px}.lrib{font-size:11.5px}}
+/* Transitions */
+#trx{position:fixed;inset:0;z-index:78;pointer-events:none;width:100vw;height:100vh}
+#trx.block{pointer-events:auto}
+.sh .brand{cursor:pointer}
 /* En-tête catalogue */
 .ch{padding:40px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
-.ch h1{margin:0;font-size:clamp(34px,5vw,54px);font-weight:600;line-height:1}
+
 .ch p{margin:8px 0 0;color:#7a6c5c;font-size:14px}
 /* Filtres */
 .flt{display:grid;gap:10px;padding:14px;border:1px solid #ece4d8;border-radius:18px;background:#fff}
@@ -237,6 +244,29 @@ body{background:#faf7f2}
 .rk i{grid-column:1/-1;height:6px;border-radius:3px;background:#eef2f9;overflow:hidden;display:block}
 .rk i u{display:block;height:100%;background:var(--blue);border-radius:3px}
 .note{font-size:12.5px;color:var(--soft);margin-top:14px}
+
+/* ---------- Thème « sable » : remplace le blanc sur toute la boutique ---------- */
+body{background:#ecdcc0}
+#shop,#catalog{background:#ecdcc0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#catalog{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(1200px 500px at 85% -10%,rgba(255,214,150,.55),transparent 70%),linear-gradient(180deg,#f0e1c6,#e6d1ad)}
+.sh{background:rgba(240,225,198,.88);border-bottom-color:#dcc7a3}
+.flt,.pc,.it,.sz,.chip,.qty,.mode,.fld input,.fld select,.mx{background:#fbf3e5}
+.flt,.pc{border-color:#dfcaa6}
+.chip,.sz,.qty,.mode,.fld input,.fld select{border-color:#d9c39d}
+.chip.on,.sz.on{background:#2b1a0a;border-color:#2b1a0a;color:#fff}
+.pc:hover{box-shadow:0 24px 50px -28px rgba(90,55,15,.55)}
+.pc .im{background:#e8d5b4}
+.md{background:#f8eedd}
+.gal{background:#ecdcc0}.gal .main,.thumbs button{background:#e3cfac}
+.notes span{background:#ecdcc0}
+.drw{background:#f8eedd}.drw .hd{border-color:#e2cfae}.drw .ft{background:#f1e3cb;border-color:#e2cfae}
+.it{background:none;border-color:#e6d5b6}.it .th{background:#e3cfac}
+.sum,.testfill{background:#f1e3cb}
+.perks,.drw .hd{border-color:#e2cfae}
+.ch p,.pc .mt,.frow .lb{color:#8a6c48}
+.credit{color:#8a6c48}
+.b.gold{background:#2b1a0a}
+.ov{background:rgba(43,26,10,.55)}
 </style>
 </head>
 <body>
@@ -248,37 +278,48 @@ body{background:#faf7f2}
 
 <!-- ===== BOUTIQUE ===== -->
 <main id="shop">
-  <header class="sh">
-    <div class="wrap">
-      <a class="brand serif" href="#" onclick="return false">Dar Nour <small>Terroir</small></a>
-      <nav class="snav" aria-label="Boutique"><span>Boutique</span><span>Nouveautés</span><span>Coffrets</span><span>Contact</span></nav>
-      <button class="cartb" id="cartBtn" type="button" aria-label="Ouvrir le panier">Panier <span class="n" id="cc">0</span></button>
-    </div>
-  </header>
-  <div class="ribbon">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Direct producteurs</div>
-  <section class="hero" id="hero" hidden aria-label="Bienvenue chez Dar Nour">
-    <div class="hbg"></div>
+  <!-- Page d'accueil : vidéo plein écran, header intégré -->
+  <section class="landing" id="landing" aria-label="Bienvenue chez Dar Nour">
+    <div class="hbg" id="hbg"></div>
+    <header class="lh">
+      <div class="wrap">
+        <a class="brand serif" href="#" onclick="return false">Dar Nour <small>Terroir</small></a>
+        <nav class="snav" aria-label="Boutique"><span>Accueil</span><span>Nos producteurs</span><span>Coffrets</span><span>Contact</span></nav>
+        <button class="cartb" type="button" data-go-cart aria-label="Ouvrir le panier">Panier <span class="n" id="ccL">0</span></button>
+      </div>
+    </header>
     <div class="hin">
       <p class="heb">Du Sahara au Djurdjura</p>
-      <h2 class="serif">Le goût du pays, <em>livré chez vous.</em></h2>
+      <h1 class="serif">Le goût du pays, <em>livré chez vous.</em></h1>
       <p class="hl">Dattes de Tolga, miels des hauts plateaux, huile d’olive de Kabylie : sélectionnés chez les producteurs, livrés dans les 58 wilayas.</p>
-      <div class="hcta"><button class="b sand" type="button" data-scroll>Découvrir les produits</button><button class="b glass" type="button" onclick="document.getElementById('cartBtn').click()">Voir mon panier</button></div>
+      <div class="hcta"><button class="b sand" type="button" id="ctaDiscover" data-go-cat>Découvrir les produits</button><button class="b glass" type="button" data-go-cart>Voir mon panier</button></div>
       <div class="htrust"><div><b>11</b>producteurs partenaires</div><div><b>58</b>wilayas livrées</div><div><b>24–72 h</b>délai de livraison</div></div>
     </div>
-    <div class="hhint" aria-hidden="true">Passez la souris sur le sable · cliquez pour le soulever</div>
-    <div class="hsw"></div>
+    <div class="lrib">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Direct producteurs</div>
   </section>
-  <div class="wrap">
-    <div class="ch">
-      <div>
-        <h1 class="serif">Le meilleur du terroir</h1>
-        <p id="count"></p>
+
+  <!-- Page produits -->
+  <div id="catalog" hidden>
+    <header class="sh">
+      <div class="wrap">
+        <a class="brand serif" href="#" id="toLanding" title="Retour à l’accueil">Dar Nour <small>Terroir</small></a>
+        <nav class="snav" aria-label="Boutique"><span>Boutique</span><span>Nos producteurs</span><span>Coffrets</span><span>Contact</span></nav>
+        <button class="cartb" id="cartBtn" type="button" aria-label="Ouvrir le panier">Panier <span class="n" id="cc">0</span></button>
       </div>
+    </header>
+    <div class="ribbon">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Direct producteurs</div>
+    <div class="wrap">
+      <div class="ch">
+        <div>
+          <h2 class="serif" style="margin:0;font-size:clamp(34px,5vw,54px);font-weight:600;line-height:1">Le meilleur du terroir</h2>
+          <p id="count"></p>
+        </div>
+      </div>
+      <div class="flt" id="filters"></div>
+      <div class="grid" id="grid"></div>
     </div>
-    <div class="flt" id="filters"></div>
-    <div class="grid" id="grid"></div>
+    <p class="credit">Boutique fictive de démonstration · Photos : <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · Vidéo : <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a></p>
   </div>
-  <p class="credit">Boutique fictive de démonstration · Photos : <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> · Vidéo : <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a></p>
 </main>
 
 <!-- Fiche produit -->
@@ -319,6 +360,6 @@ body{background:#faf7f2}
 
 <script src="../tour.js"></script>
 <script src="ecom.js"></script>
-<script src="hero.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
