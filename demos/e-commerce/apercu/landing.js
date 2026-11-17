@@ -14,7 +14,8 @@
   function playVid() { if (!reduce && page === 'landing' && !shop.hidden) vid.play().catch(function () {}); }
   if (reduce) vid.removeAttribute('autoplay'); else playVid();
 
-  var kind = 'sable';
+  // Transition : ?transition=dune pour comparer, tempête de sable par défaut
+  var kind = new URLSearchParams(location.search).get('transition') === 'dune' ? 'dune' : 'sable';
 
   // ---------- Pages ----------
   function setPage(p, push) {
@@ -103,25 +104,25 @@
     }).then(function () { o.c.remove(); });
   }
 
-  function logo(x, W, H, a, t) {
+  function logo(x, W, H, a, t, light) {
     var cx = W / 2, cy = H / 2, s = Math.min(1, W / 700), rise = (1 - a) * 18;
     x.save(); x.globalAlpha = a; x.translate(cx, cy + rise);
     // emblème : un soleil au-dessus d'une ligne de dunes
-    var R = 26 * s; x.strokeStyle = '#3a2410'; x.lineWidth = 2.4 * s; x.lineCap = 'round';
+    var R = 26 * s; x.strokeStyle = light ? '#ffe9c7' : '#3a2410'; x.lineWidth = 2.4 * s; x.lineCap = 'round';
     x.beginPath(); x.arc(0, -78 * s, R, Math.PI, 0); x.stroke();
     for (var i = 0; i < 7; i++) { var ang = Math.PI + Math.PI * (i + .5) / 7, r1 = R + 7 * s, r2 = R + 15 * s; x.beginPath(); x.moveTo(Math.cos(ang) * r1, -78 * s + Math.sin(ang) * r1); x.lineTo(Math.cos(ang) * r2, -78 * s + Math.sin(ang) * r2); x.stroke(); }
     x.beginPath(); x.moveTo(-60 * s, -72 * s); x.bezierCurveTo(-30 * s, -86 * s, -10 * s, -66 * s, 10 * s, -74 * s); x.bezierCurveTo(30 * s, -82 * s, 45 * s, -70 * s, 60 * s, -72 * s); x.stroke();
-    x.fillStyle = '#2b1a0a'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.fillStyle = light ? '#fff6e6' : '#2b1a0a'; x.textAlign = 'center'; x.textBaseline = 'middle';
     x.font = '600 ' + Math.round(64 * s) + 'px Fraunces, Georgia, serif'; x.fillText('Dar Nour', 0, -10 * s);
     x.font = '800 ' + Math.round(12 * s) + 'px "Plus Jakarta Sans", sans-serif';
     if ('letterSpacing' in x) x.letterSpacing = (6 * s) + 'px';
-    x.fillStyle = '#7a4a1e'; x.fillText('PRODUITS DU TERROIR', 0, 42 * s);
+    x.fillStyle = light ? '#ffd58f' : '#7a4a1e'; x.fillText('PRODUITS DU TERROIR', 0, 42 * s);
     x.restore();
   }
 
   // 2) Dune : une dune monte et recouvre l'écran, puis continue sa course vers le haut
   function duneTr(mid) {
-    var o = overlay(), x = o.x, W = o.W, H = o.H, D1 = 760, HOLD = 100, D2 = 820, swapped = false;
+    var o = overlay(), x = o.x, W = o.W, H = o.H, D1 = 760, HOLD = 650, D2 = 820, swapped = false;
     var pat = sandPattern(x);
     var bands = [{ c: ['#f2c98e', '#e3a964'], d: 0, ph: .3 }, { c: ['#e3a35c', '#c98340'], d: 70, ph: 2.1 }, { c: ['#c7843f', '#9c5c25'], d: 140, ph: 4.2 }];
     function crest(px, y0, ph) { return y0 - Math.sin(px * .0045 + ph) * 34 - Math.sin(px * .011 + ph * 2) * 14 - Math.pow(Math.abs(Math.sin(px * .0022 + ph)), 3) * 30; }
@@ -144,6 +145,9 @@
         var k2 = ease((t - D1 - HOLD) / D2);
         bands.slice().reverse().forEach(function (b, i) { band(b, null, H + 60 + i * 70 - k2 * (H + 300 + i * 70)); });
       }
+      // le logo Dar Nour sur la dune
+      var la = t < D1 - 120 ? 0 : t < D1 + 120 ? (t - D1 + 120) / 240 : t < D1 + HOLD ? 1 : Math.max(0, 1 - (t - D1 - HOLD) / 240);
+      if (la > 0) { x.save(); x.shadowColor = 'rgba(60,30,5,.35)'; x.shadowBlur = 18; logo(x, W, H, ease(Math.min(1, la)), t, true); x.restore(); }
     }).then(function () { o.c.remove(); });
   }
 
