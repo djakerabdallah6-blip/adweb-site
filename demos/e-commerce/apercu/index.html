@@ -245,6 +245,29 @@ body{background:#faf7f2}
 .rk i{grid-column:1/-1;height:6px;border-radius:3px;background:#eef2f9;overflow:hidden;display:block}
 .rk i u{display:block;height:100%;background:var(--blue);border-radius:3px}
 .note{font-size:12.5px;color:var(--soft);margin-top:14px}
+
+/* ---------- Thème « sable » : remplace le blanc sur toute la boutique ---------- */
+body{background:#ecdcc0}
+#shop,#catalog{background:#ecdcc0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#catalog{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(1200px 500px at 85% -10%,rgba(255,214,150,.55),transparent 70%),linear-gradient(180deg,#f0e1c6,#e6d1ad)}
+.sh{background:rgba(240,225,198,.88);border-bottom-color:#dcc7a3}
+.flt,.pc,.it,.sz,.chip,.qty,.mode,.fld input,.fld select,.mx{background:#fbf3e5}
+.flt,.pc{border-color:#dfcaa6}
+.chip,.sz,.qty,.mode,.fld input,.fld select{border-color:#d9c39d}
+.chip.on,.sz.on{background:#2b1a0a;border-color:#2b1a0a;color:#fff}
+.pc:hover{box-shadow:0 24px 50px -28px rgba(90,55,15,.55)}
+.pc .im{background:#e8d5b4}
+.md{background:#f8eedd}
+.gal{background:#ecdcc0}.gal .main,.thumbs button{background:#e3cfac}
+.notes span{background:#ecdcc0}
+.drw{background:#f8eedd}.drw .hd{border-color:#e2cfae}.drw .ft{background:#f1e3cb;border-color:#e2cfae}
+.it{background:none;border-color:#e6d5b6}.it .th{background:#e3cfac}
+.sum,.testfill{background:#f1e3cb}
+.perks,.drw .hd{border-color:#e2cfae}
+.ch p,.pc .mt,.frow .lb{color:#8a6c48}
+.credit{color:#8a6c48}
+.b.gold{background:#2b1a0a}
+.ov{background:rgba(43,26,10,.55)}
 </style>
 </head>
 <body>
@@ -273,7 +296,6 @@ body{background:#faf7f2}
       <div class="hcta"><button class="b sand" type="button" id="ctaDiscover" data-go-cat>Découvrir les produits</button><button class="b glass" type="button" data-go-cart>Voir mon panier</button></div>
       <div class="htrust"><div><b>11</b>producteurs partenaires</div><div><b>58</b>wilayas livrées</div><div><b>24–72 h</b>délai de livraison</div></div>
     </div>
-    <div class="tsw" id="tsw" aria-label="Choisir la transition"></div>
     <div class="lrib">Livraison dans les <b>58 wilayas</b> · Paiement à la livraison · Direct producteurs</div>
   </section>
 
