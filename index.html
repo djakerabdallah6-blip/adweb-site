@@ -80,9 +80,7 @@ a{color:inherit}
 .adw .cta:hover .arr{transform:translateX(4px)}
 .adw a.card:hover .cta .arr{transform:translateX(4px)}
 .adw .opt{transition:border-color .2s,background .2s,transform .2s;cursor:pointer}.adw .opt:hover{transform:translateY(-2px)}
-.adw .shot{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.adw .proj:hover .shot{transform:scale(1.04)}
 .adw .qa{transition:background .2s}.adw .qa:hover{background:#f1f5fd}
-.adw .lift,.adw .go{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.adw .proj:hover .lift{transform:translateY(-6px)}.adw .proj:hover .go{transform:rotate(45deg)}
 @media (max-width:760px){.adw .scrim{background:linear-gradient(180deg,rgba(7,11,24,.55) 0%,rgba(7,11,24,.88) 45%,rgba(7,11,24,.6) 100%)!important}.adw .cglow{display:none}.adw .hide-m{display:none}}
 @media (prefers-reduced-motion:reduce){.adw .intro{display:none}.adw .deploy{animation:none;clip-path:none}.adw .rv,.adw .st{opacity:1;transform:none;transition:none}.adw .mline{transform:scaleX(1);transition:none}.adw .mq{animation:none}.adw .w,.adw .rise,.adw .grad{animation:none;opacity:1;filter:none;transform:none}.adw .shine::after,.adw .drip,.adw .pulse{animation:none}.adw .float,.adw .slot{animation:none}.adw .float{transform:none}.adw .slot{opacity:0}}
 
@@ -110,10 +108,10 @@ html{scroll-behavior:smooth}
     <div style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500; flex-wrap: wrap">
       <a class="nl hide-m" href="#demos" data-go="demos">Démos</a>
       <a class="nl hide-m" href="#services" data-go="services">Services</a>
-      <a class="nl hide-m" href="#realisations">Réalisations</a>
-      <a class="nl hide-m" href="#methode">Méthode</a>
+      <a class="nl hide-m" href="#methode" data-go="methode">Méthode</a>
+      <a class="nl hide-m" href="#faq" data-go="faq">FAQ</a>
       <a class="nl hide-m" href="#contact" data-go="contact">Contact</a>
-      <a class="btn" href="#contact" data-go="contact" style="background: rgba(242,245,252,.08); color: #f2f5fc; border: 1px solid rgba(242,245,252,.22); font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 999px; min-height: 44px; display: inline-flex; align-items: center">Demander un devis</a>
+      <a class="btn" href="#devis" data-go="devis" style="background: rgba(242,245,252,.08); color: #f2f5fc; border: 1px solid rgba(242,245,252,.22); font-weight: 700; font-size: 14px; padding: 12px 20px; border-radius: 999px; min-height: 44px; display: inline-flex; align-items: center">Demander un devis</a>
     </div>
   </nav>
 
@@ -128,7 +126,7 @@ html{scroll-behavior:smooth}
       </h1>
       <p class="rise" style="margin: 0 0 40px; font-size: 19px; line-height: 1.6; color: #b8c6e8; max-width: 31em; animation-delay: 2220ms">Sites vitrines, e-commerce, plateformes de gestion et applications sur mesure : nous concevons et développons le site professionnel qui fait avancer votre activité.</p>
       <div class="rise" style="display: flex; flex-wrap: wrap; gap: 14px; animation-delay: 2340ms">
-        <a class="btn shine" href="#contact" data-go="contact" data-boost style="background: #2563eb; color: #ffffff; font-weight: 700; font-size: 16px; padding: 18px 28px; border-radius: 999px; min-height: 56px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 0 0 1px rgba(147,180,255,.35) inset, 0 18px 40px -14px rgba(37,99,235,.9)">
+        <a class="btn shine" href="#devis" data-go="devis" data-boost style="background: #2563eb; color: #ffffff; font-weight: 700; font-size: 16px; padding: 18px 28px; border-radius: 999px; min-height: 56px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 0 0 1px rgba(147,180,255,.35) inset, 0 18px 40px -14px rgba(37,99,235,.9)">
           Lancer mon projet
           <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
@@ -198,159 +196,6 @@ html{scroll-behavior:smooth}
       <span><b style="display: block; font-size: 19px; letter-spacing: -0.02em; margin-bottom: 4px">Votre activité n’est pas là ?</b><span style="font-size: 15px; color: #a9b6d3">Parlez-nous de votre métier : on vous montre à quoi ça ressemblerait chez vous.</span></span>
       <span class="cta" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #93b4ff">Parlons-en<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition: transform .25s"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
     </a>
-  </div>
-</section>
-
-<!-- REALISATIONS -->
-<section id="realisations" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0b1020; background: #f6f8fc">
-  <div class="rv" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px">
-      <div style="max-width: 640px">
-        <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb">Réalisations</p>
-        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Des projets qui tournent déjà.</h2>
-      </div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px 32px; align-items: start">
-<a class="proj" href="https://sen-denta-maquette.vercel.app/apercu-sans-marque.html" target="_blank" rel="noopener" style="text-decoration: none; display: block">
-  <div class="lift" style="border-radius: 14px; overflow: hidden; background: #ffffff; border: 1px solid #dfe5f0; box-shadow: 0 30px 60px -30px rgba(7,11,24,.35), 0 8px 20px -12px rgba(7,11,24,.15)">
-    <div style="display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; height: 40px; padding: 0 14px; background: #f3f5f9; border-bottom: 1px solid #e3e8f3">
-      <div style="display: flex; gap: 7px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #ff5f57"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #febc2e"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #28c840"></span></div>
-      <div style="justify-self: center; display: flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 14px; border-radius: 8px; background: #ffffff; border: 1px solid #e3e8f3; font-size: 12px; color: #4b5775; white-space: nowrap; overflow: hidden"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>sen-denta-maquette.vercel.app</div>
-      <span></span>
-    </div>
-    <img src="img/sendenta.webp" alt="Page d’accueil du site Sen Denta" loading="lazy" style="display: block; width: 100%; height: auto">
-  </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px 0"><div><h3 style="margin: 0 0 4px; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; color: #0b1020">Sen Denta</h3><p style="margin: 0; font-size: 14px; color: #4b5775">Catalogue avec configurateur et devis · Mobilier dentaire</p></div><span class="go" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #d4dcec; color: #0b1020; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></span></div>
-</a>
-<a class="proj" href="https://club-voyages.vercel.app/" target="_blank" rel="noopener" style="text-decoration: none; display: block">
-  <div class="lift" style="border-radius: 14px; overflow: hidden; background: #ffffff; border: 1px solid #dfe5f0; box-shadow: 0 30px 60px -30px rgba(7,11,24,.35), 0 8px 20px -12px rgba(7,11,24,.15)">
-    <div style="display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; height: 40px; padding: 0 14px; background: #f3f5f9; border-bottom: 1px solid #e3e8f3">
-      <div style="display: flex; gap: 7px"><span style="width: 11px; height: 11px; border-radius: 50%; background: #ff5f57"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #febc2e"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #28c840"></span></div>
-      <div style="justify-self: center; display: flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 14px; border-radius: 8px; background: #ffffff; border: 1px solid #e3e8f3; font-size: 12px; color: #4b5775; white-space: nowrap; overflow: hidden"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>club-voyages.vercel.app</div>
-      <span></span>
-    </div>
-    <img src="img/clubvoyages.webp" alt="Page d’accueil du site Club Voyages" loading="lazy" style="display: block; width: 100%; height: auto">
-  </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px 0"><div><h3 style="margin: 0 0 4px; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; color: #0b1020">Club Voyages</h3><p style="margin: 0; font-size: 14px; color: #4b5775">Site vitrine · Agence de voyages</p></div><span class="go" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #d4dcec; color: #0b1020; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></span></div>
-</a>
-    </div>
-  </div>
-</section>
-
-<!-- METHODE -->
-<section id="methode" style="background: #ffffff; border-top: 1px solid #e3e8f3; border-bottom: 1px solid #e3e8f3">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px">
-    <div class="rv">
-      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb">Notre méthode</p>
-      <h2 style="margin: 0 0 64px; max-width: 700px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800; text-wrap: balance">Un projet clair, de la première idée à la mise en ligne.</h2>
-    </div>
-    <div class="rv steps" style="position: relative">
-      <div aria-hidden="true" class="hide-m" style="position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: #e3e8f3"></div>
-      <div aria-hidden="true" class="mline hide-m" style="position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: #2563eb"></div>
-      <ol style="position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 36px">
-        <li class="st" style="transition-delay: 200ms">
-          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">01</span>
-          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Échange</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous écoutons votre activité, vos objectifs et vos besoins pour cadrer le projet.</p>
-        </li>
-        <li class="st" style="transition-delay: 450ms">
-          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">02</span>
-          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Maquette</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Vous validez le design et la structure avant toute ligne de code.</p>
-        </li>
-        <li class="st" style="transition-delay: 700ms">
-          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">03</span>
-          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Développement</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous construisons un site rapide, adapté au mobile et optimisé pour le référencement.</p>
-        </li>
-        <li class="st" style="transition-delay: 950ms">
-          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">04</span>
-          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Mise en ligne et suivi</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous publions votre site, puis assurons l'hébergement, la sécurité et les évolutions.</p>
-        </li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- DEVIS -->
-<section id="devis" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #f2f5fc; background: #070b18">
-  <div class="rv" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 56px; align-items: start">
-    <div>
-      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #93b4ff">Devis en 30 secondes</p>
-      <h2 style="margin: 0 0 18px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Composez votre projet.</h2>
-      <p style="margin: 0 0 28px; font-size: 17px; line-height: 1.6; color: #b8c6e8; max-width: 26em">Trois choix, et votre demande part directement sur WhatsApp, déjà rédigée.</p>
-      <div style="border: 1px solid rgba(148,170,230,.2); border-radius: 18px; padding: 22px; background: rgba(255,255,255,.03)">
-        <p style="margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #8fa2cc">Votre message</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #e6edff; white-space: pre-line"><span id="wamsg"></span></p>
-      </div>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 30px">
-      <div>
-        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">1. Type de projet</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px">
-          <button type="button" class="opt on" data-g="type" aria-pressed="true" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Site vitrine</button>
-            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Site e-commerce</button>
-            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Catalogue avec devis</button>
-            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Plateforme de gestion</button>
-            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Application sur mesure</button>
-            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Référencement SEO / GEO</button>
-        </div>
-      </div>
-      <div>
-        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">2. Délai souhaité</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px">
-          <button type="button" class="opt" data-g="delai" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Urgent</button>
-            <button type="button" class="opt on" data-g="delai" aria-pressed="true" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Dans le mois</button>
-            <button type="button" class="opt" data-g="delai" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Pas pressé</button>
-        </div>
-      </div>
-      <div>
-        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">3. Vous avez déjà…</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px">
-          <button type="button" class="opt on" data-g="deja" aria-pressed="true" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Rien encore</button>
-            <button type="button" class="opt" data-g="deja" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Un logo</button>
-            <button type="button" class="opt" data-g="deja" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Un site à refaire</button>
-        </div>
-      </div>
-      <a class="btn" id="walink" href="https://wa.me/213799042627" target="_blank" rel="noopener" style="background: #2563eb; color: #ffffff; font-weight: 700; font-size: 17px; padding: 20px 28px; border-radius: 999px; min-height: 60px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 18px 40px -14px rgba(37,99,235,.9)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5Z"></path></svg>
-        Envoyer ma demande sur WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0b1020; background: #ffffff">
-  <div class="rv" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px; align-items: start">
-    <div>
-      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb">Questions fréquentes</p>
-      <h2 style="margin: 0 0 18px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Vous vous demandez sûrement…</h2>
-      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4b5775">Une autre question ? Écrivez-nous sur WhatsApp, on vous répond directement.</p>
-    </div>
-    <div style="border-top: 1px solid #e3e8f3">
-      <div style="border-bottom: 1px solid #e3e8f3">
-          <button type="button" class="qa" aria-expanded="true" aria-controls="faq0" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Combien coûte un site ?<span class="sg" aria-hidden="true">−</span></button>
-          <p id="faq0" style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Le prix dépend du type de site et des fonctionnalités. Après un premier échange, nous vous envoyons un devis détaillé. [À compléter : vos fourchettes de prix]</p>
-        </div>
-        <div style="border-bottom: 1px solid #e3e8f3">
-          <button type="button" class="qa" aria-expanded="false" aria-controls="faq1" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">En combien de temps mon site est-il en ligne ?<span class="sg" aria-hidden="true">+</span></button>
-          <p id="faq1" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">[À compléter : vos délais habituels, par exemple pour un site vitrine et pour un e-commerce]</p>
-        </div>
-        <div style="border-bottom: 1px solid #e3e8f3">
-          <button type="button" class="qa" aria-expanded="false" aria-controls="faq2" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Mon site sera-t-il adapté aux téléphones ?<span class="sg" aria-hidden="true">+</span></button>
-          <p id="faq2" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Oui : chaque site est conçu pour s’afficher correctement sur mobile, tablette et ordinateur.</p>
-        </div>
-        <div style="border-bottom: 1px solid #e3e8f3">
-          <button type="button" class="qa" aria-expanded="false" aria-controls="faq3" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Est-ce que vous vous occupez de l’hébergement ?<span class="sg" aria-hidden="true">+</span></button>
-          <p id="faq3" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Oui, nous pouvons prendre en charge la mise en ligne, la sécurité, les sauvegardes et les évolutions de votre site.</p>
-        </div>
-        <div style="border-bottom: 1px solid #e3e8f3">
-          <button type="button" class="qa" aria-expanded="false" aria-controls="faq4" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Pourrai-je modifier mon site moi-même ?<span class="sg" aria-hidden="true">+</span></button>
-          <p id="faq4" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">[À compléter : selon ce que vous proposez, interface d’administration, formation, etc.]</p>
-        </div>
-    </div>
   </div>
 </section>
 
@@ -426,6 +271,123 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<!-- METHODE -->
+<section id="methode" style="background: #ffffff; border-top: 1px solid #e3e8f3; border-bottom: 1px solid #e3e8f3">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px">
+    <div class="rv">
+      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb">Notre méthode</p>
+      <h2 style="margin: 0 0 64px; max-width: 700px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800; text-wrap: balance">Un projet clair, de la première idée à la mise en ligne.</h2>
+    </div>
+    <div class="rv steps" style="position: relative">
+      <div aria-hidden="true" class="hide-m" style="position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: #e3e8f3"></div>
+      <div aria-hidden="true" class="mline hide-m" style="position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: #2563eb"></div>
+      <ol style="position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 36px">
+        <li class="st" style="transition-delay: 200ms">
+          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">01</span>
+          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Échange</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous écoutons votre activité, vos objectifs et vos besoins pour cadrer le projet.</p>
+        </li>
+        <li class="st" style="transition-delay: 450ms">
+          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">02</span>
+          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Maquette</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Vous validez le design et la structure avant toute ligne de code.</p>
+        </li>
+        <li class="st" style="transition-delay: 700ms">
+          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">03</span>
+          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Développement</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous construisons un site rapide, adapté au mobile et optimisé pour le référencement.</p>
+        </li>
+        <li class="st" style="transition-delay: 950ms">
+          <span style="width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; margin-bottom: 26px; box-shadow: 0 0 0 6px #ffffff">04</span>
+          <h3 style="margin: 0 0 10px; font-size: 21px; letter-spacing: -0.025em; font-weight: 700">Mise en ligne et suivi</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4b5775">Nous publions votre site, puis assurons l'hébergement, la sécurité et les évolutions.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0b1020; background: #f6f8fc">
+  <div class="rv" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px; align-items: start">
+    <div>
+      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb">Questions fréquentes</p>
+      <h2 style="margin: 0 0 18px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Vous vous demandez sûrement…</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4b5775">Une autre question ? Écrivez-nous sur WhatsApp, on vous répond directement.</p>
+    </div>
+    <div style="border-top: 1px solid #e3e8f3">
+      <div style="border-bottom: 1px solid #e3e8f3">
+          <button type="button" class="qa" aria-expanded="true" aria-controls="faq0" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Combien coûte un site ?<span class="sg" aria-hidden="true">−</span></button>
+          <p id="faq0" style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Le prix dépend du type de site et des fonctionnalités. Après un premier échange, nous vous envoyons un devis détaillé. [À compléter : vos fourchettes de prix]</p>
+        </div>
+        <div style="border-bottom: 1px solid #e3e8f3">
+          <button type="button" class="qa" aria-expanded="false" aria-controls="faq1" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">En combien de temps mon site est-il en ligne ?<span class="sg" aria-hidden="true">+</span></button>
+          <p id="faq1" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">[À compléter : vos délais habituels, par exemple pour un site vitrine et pour un e-commerce]</p>
+        </div>
+        <div style="border-bottom: 1px solid #e3e8f3">
+          <button type="button" class="qa" aria-expanded="false" aria-controls="faq2" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Mon site sera-t-il adapté aux téléphones ?<span class="sg" aria-hidden="true">+</span></button>
+          <p id="faq2" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Oui : chaque site est conçu pour s’afficher correctement sur mobile, tablette et ordinateur.</p>
+        </div>
+        <div style="border-bottom: 1px solid #e3e8f3">
+          <button type="button" class="qa" aria-expanded="false" aria-controls="faq3" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Est-ce que vous vous occupez de l’hébergement ?<span class="sg" aria-hidden="true">+</span></button>
+          <p id="faq3" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">Oui, nous pouvons prendre en charge la mise en ligne, la sécurité, les sauvegardes et les évolutions de votre site.</p>
+        </div>
+        <div style="border-bottom: 1px solid #e3e8f3">
+          <button type="button" class="qa" aria-expanded="false" aria-controls="faq4" style="font: inherit; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; background: transparent; border: 0; padding: 24px 12px; min-height: 64px; cursor: pointer; color: #0b1020; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">Pourrai-je modifier mon site moi-même ?<span class="sg" aria-hidden="true">+</span></button>
+          <p id="faq4" hidden style="margin: 0; padding: 0 12px 24px; font-size: 16px; line-height: 1.65; color: #4b5775; max-width: 40em">[À compléter : selon ce que vous proposez, interface d’administration, formation, etc.]</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS -->
+<section id="devis" style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #f2f5fc; background: #070b18">
+  <div class="rv" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 56px; align-items: start">
+    <div>
+      <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #93b4ff">Devis en 30 secondes</p>
+      <h2 style="margin: 0 0 18px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800">Composez votre projet.</h2>
+      <p style="margin: 0 0 28px; font-size: 17px; line-height: 1.6; color: #b8c6e8; max-width: 26em">Trois choix, et votre demande part directement sur WhatsApp, déjà rédigée.</p>
+      <div style="border: 1px solid rgba(148,170,230,.2); border-radius: 18px; padding: 22px; background: rgba(255,255,255,.03)">
+        <p style="margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #8fa2cc">Votre message</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #e6edff; white-space: pre-line"><span id="wamsg"></span></p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 30px">
+      <div>
+        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">1. Type de projet</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px">
+          <button type="button" class="opt on" data-g="type" aria-pressed="true" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Site vitrine</button>
+            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Site e-commerce</button>
+            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Catalogue avec devis</button>
+            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Plateforme de gestion</button>
+            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Application sur mesure</button>
+            <button type="button" class="opt" data-g="type" aria-pressed="false" style="font: inherit; text-align: left; font-size: 15px; font-weight: 600; padding: 16px; min-height: 56px; border-radius: 14px; color: #f2f5fc;">Référencement SEO / GEO</button>
+        </div>
+      </div>
+      <div>
+        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">2. Délai souhaité</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <button type="button" class="opt" data-g="delai" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Urgent</button>
+            <button type="button" class="opt on" data-g="delai" aria-pressed="true" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Dans le mois</button>
+            <button type="button" class="opt" data-g="delai" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Pas pressé</button>
+        </div>
+      </div>
+      <div>
+        <p style="margin: 0 0 12px; font-size: 14px; font-weight: 700">3. Vous avez déjà…</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <button type="button" class="opt on" data-g="deja" aria-pressed="true" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Rien encore</button>
+            <button type="button" class="opt" data-g="deja" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Un logo</button>
+            <button type="button" class="opt" data-g="deja" aria-pressed="false" style="font: inherit; font-size: 15px; font-weight: 600; padding: 12px 20px; min-height: 48px; border-radius: 999px; color: #f2f5fc;">Un site à refaire</button>
+        </div>
+      </div>
+      <a class="btn" id="walink" href="https://wa.me/213799042627" target="_blank" rel="noopener" style="background: #2563eb; color: #ffffff; font-weight: 700; font-size: 17px; padding: 20px 28px; border-radius: 999px; min-height: 60px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 18px 40px -14px rgba(37,99,235,.9)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5Z"></path></svg>
+        Envoyer ma demande sur WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px">
   <div class="rv" style="background: #070b18; color: #ffffff; border-radius: 32px; padding: clamp(32px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 44px; align-items: center; position: relative; overflow: hidden">
@@ -463,9 +425,9 @@ html{scroll-behavior:smooth}
     <div style="display: flex; flex-wrap: wrap; gap: 24px">
       <a class="lnk" href="#demos" data-go="demos">Démos</a>
       <a class="lnk" href="#services" data-go="services">Services</a>
-      <a class="lnk" href="#realisations">Réalisations</a>
-      <a class="lnk" href="#methode">Méthode</a>
-      <a class="lnk" href="#faq">FAQ</a>
+      <a class="lnk" href="#methode" data-go="methode">Méthode</a>
+      <a class="lnk" href="#faq" data-go="faq">FAQ</a>
+      <a class="lnk" href="#devis" data-go="devis">Devis</a>
       <a class="lnk" href="#contact" data-go="contact">Contact</a>
     </div>
     <p style="margin: 0">© ADweb. Tous droits réservés.</p>

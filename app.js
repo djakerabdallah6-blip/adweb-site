@@ -27,7 +27,8 @@
 
   // ---------- Transitions ----------
   var busy = false;
-  function label(id) { return id === 'contact' ? 'Parlons de votre projet.' : id === 'demos' ? 'Essayez vous-même.' : 'Nos services'; }
+  var LABELS = { contact: 'Parlons de votre projet.', demos: 'Essayez vous-même.', services: 'Nos services', methode: 'Notre méthode', faq: 'Vos questions', devis: 'Composez votre projet.' };
+  function label(id) { return LABELS[id] || 'ADweb'; }
   function brand() {
     return '<div class="trl" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;text-align:center;padding:24px">' +
       '<span style="font-weight:800;font-size:22px;letter-spacing:-0.035em;opacity:.85">AD<span style="color:#0b1020">web</span></span>' +
